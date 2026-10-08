@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero-tagge-scrubs.avif" type="image/avif" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-bunion-xray.avif" type="image/avif" fetchpriority="high">
 <style>
   html, body { overflow-x: clip; }
   
@@ -151,17 +151,10 @@
   }
   #bm-lp .bm-photo::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1px solid rgba(219, 189, 119, 0.28); pointer-events: none; }
   #bm-lp .bm-photo img { width: 100%; height: 100%; object-fit: cover; }
-  #bm-lp .bm-hero .bm-photo { aspect-ratio: 4 / 5; }
-  #bm-lp .bm-hero .bm-photo img { object-position: 50% 22%; }
-  #bm-lp .bm-lower-third {
-    position: absolute; left: 0; right: 0; bottom: 0; padding: 72px 24px 22px;
-    background: linear-gradient(to top, rgba(10, 12, 14, 0.82), rgba(10, 12, 14, 0));
-  }
-  #bm-lp .bm-lower-third__name { font-family: var(--bm-head); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; color: var(--bm-white); }
-  #bm-lp .bm-chip { display: inline-flex; margin-top: 10px; border-radius: 999px; overflow: hidden; border: 1px solid var(--bm-gold-beige); font-size: 12px; font-weight: 600; line-height: 1; }
-  #bm-lp .bm-chip span { padding: 7px 12px; }
-  #bm-lp .bm-chip span:first-child { background: var(--bm-grad-cta); color: var(--bm-charcoal); }
-  #bm-lp .bm-chip span:last-child { color: var(--bm-white); background: rgba(23, 23, 23, 0.6); }
+  #bm-lp .bm-hero .bm-photo { aspect-ratio: 1100 / 1119; background: #0b0d11; }
+  #bm-lp .bm-doc { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--bm-line-dark); display: flex; align-items: center; gap: 18px; }
+  #bm-lp .bm-doc img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 2px var(--bm-charcoal), 0 0 0 3.5px var(--bm-gold-beige); }
+  #bm-lp .bm-doc__name { font-family: var(--bm-head); font-weight: 600; font-size: 24px; line-height: 1.2; letter-spacing: -0.02em; color: var(--bm-white); }
   #bm-lp .bm-proof {
     margin-top: 28px; padding: 26px 26px 22px; border-radius: var(--bm-radius);
     background: rgba(255, 255, 255, 0.04); border: 1px solid var(--bm-line-dark);
@@ -399,6 +392,9 @@
     #bm-lp .bm-section { padding: 72px 0; }
     #bm-lp .bm-hero { padding: 52px 0 72px; }
     #bm-lp .bm-header__logo img { width: 160px; }
+    #bm-lp .bm-doc { margin-top: 28px; padding-top: 24px; gap: 14px; }
+    #bm-lp .bm-doc img { width: 68px; height: 68px; }
+    #bm-lp .bm-doc__name { font-size: 20px; }
     #bm-lp .bm-header .bm-btn { padding: 10px 13px; font-size: 11px; letter-spacing: 0.03em; }
     #bm-lp .bm-hero__copy .bm-body p, #bm-lp .bm-lead, #bm-lp .bm-letter p { font-size: 17px; }
     #bm-lp .bm-letter p:first-child { font-size: 18px; }
@@ -474,17 +470,17 @@
           <a class="bm-btn" href="#bm-survey" data-bm-cta="hero">CHECK YOUR CANDIDACY<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
           <p class="bm-caption">Start with a short survey. You&rsquo;re not booking surgery or committing to a consultation.</p>
         </div>
+        <div class="bm-doc">
+          <img src="img/avatar-tagge.webp" alt="Dr. Michael Tagge, DPM" width="256" height="256" decoding="async">
+          <p class="bm-doc__name">Dr. Michael Tagge, DPM</p>
+        </div>
       </div>
       <div class="bm-hero__media">
         <figure class="bm-photo">
           <picture>
-            <source srcset="img/hero-tagge-scrubs.avif" type="image/avif">
-            <img src="img/hero-tagge-scrubs.webp" alt="Dr. Michael Tagge, DPM" width="1100" height="1650" fetchpriority="high" decoding="async">
+            <source srcset="img/hero-bunion-xray.avif" type="image/avif">
+            <img src="img/hero-bunion-xray.webp" alt="X-ray of a foot with the bunion at the big toe joint highlighted" width="1100" height="1119" fetchpriority="high" decoding="async">
           </picture>
-          <figcaption class="bm-lower-third">
-            <div class="bm-lower-third__name">Dr. Michael Tagge, DPM</div>
-            <div class="bm-chip"><span>Bunion Master</span><span>PRISM&trade;</span></div>
-          </figcaption>
         </figure>
         <div class="bm-proof">
           <span class="bm-proof__mark bm-gold-text" aria-hidden="true">&ldquo;</span>
