@@ -74,6 +74,8 @@
   }
   #bm-lp .bm-eyebrow::before { content: ""; width: 28px; height: 2px; border-radius: 2px; background: var(--bm-grad-hl); flex: none; }
   #bm-lp .bm-center .bm-eyebrow { justify-content: center; }
+  #bm-lp .bm-h1, #bm-lp .bm-h2, #bm-lp .bm-h3, #bm-lp .bm-h4, #bm-lp .bm-eyebrow { text-wrap: balance; }
+  #bm-lp p, #bm-lp blockquote, #bm-lp li { text-wrap: pretty; }
   #bm-lp .bm-dark .bm-eyebrow { color: var(--bm-gold-beige); }
   #bm-lp .bm-h1, #bm-lp .bm-h2, #bm-lp .bm-h3 { font-family: var(--bm-head); font-weight: 600; color: var(--bm-ink); }
   #bm-lp .bm-h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.04em; }
@@ -164,7 +166,7 @@
   #bm-lp .bm-stage .bm-h4 { margin-bottom: 12px; }
   #bm-lp .bm-stage p { color: var(--bm-ink-2); font-size: 16px; }
   #bm-lp .bm-support {
-    margin: 40px auto 0; max-width: 860px; padding: 26px 30px; border-radius: 14px; position: relative;
+    margin: 40px auto 0; max-width: 760px; padding: 26px 30px; border-radius: 14px; position: relative;
     background: var(--bm-white); border: 1px solid var(--bm-line); font-size: 17px; font-weight: 500; color: var(--bm-ink);
   }
   #bm-lp .bm-support::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 3px; border-radius: 3px; background: var(--bm-grad-hl); }
@@ -209,9 +211,11 @@
   #bm-lp .bm-price-card .bm-btn { width: 100%; margin-top: 30px; }
   
   #bm-lp .bm-creds { background: var(--bm-beige-light); border-top: 1px solid var(--bm-line); border-bottom: 1px solid var(--bm-line); }
-  #bm-lp .bm-creds__inner { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 22px 0; }
+  #bm-lp .bm-creds__inner { display: flex; align-items: center; justify-content: center; gap: 14px; padding-top: 22px; padding-bottom: 22px; }
   #bm-lp .bm-creds__inner .bm-ico { width: 24px; height: 24px; color: var(--bm-gold-tan); }
-  #bm-lp .bm-creds p { font-size: 15px; line-height: 1.5; font-weight: 600; color: var(--bm-ink); text-align: center; }
+  #bm-lp .bm-creds p { font-size: 15px; line-height: 1.5; font-weight: 600; color: var(--bm-ink); text-align: center; text-wrap: balance; }
+  #bm-lp .bm-cred { white-space: nowrap; }
+  #bm-lp .bm-sep { color: var(--bm-gold-tan); }
   
   #bm-lp .bm-book { scroll-margin-top: var(--bm-header-h); }
   #bm-lp .bm-book__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; align-items: start; }
@@ -220,13 +224,20 @@
   #bm-lp .bm-summary { margin-top: 30px; padding: 24px 24px 22px; border-radius: 16px; background: var(--bm-white); border: 1px solid var(--bm-line); }
   #bm-lp .bm-summary .bm-ticks li { color: var(--bm-ink); font-size: 15px; }
   #bm-lp .bm-summary .bm-ticks .bm-ico { color: var(--bm-gold-tan); }
-  #bm-lp .bm-policy { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--bm-line); display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 14px; font-weight: 500; color: var(--bm-ink-2); }
+  #bm-lp .bm-policy { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--bm-line); display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; font-weight: 500; color: var(--bm-ink-2); }
   #bm-lp .bm-policy a { color: var(--bm-ink); text-decoration: underline; text-decoration-color: var(--bm-gold-tan); text-underline-offset: 3px; }
   #bm-lp .bm-cal-card {
     border-radius: 20px; background: var(--bm-white); border: 1px solid var(--bm-line);
     box-shadow: 0 30px 60px -40px rgba(23, 23, 23, 0.5); overflow: hidden;
   }
   #bm-lp .bm-cal-card::before { content: ""; display: block; height: 4px; background: var(--bm-grad-cta); }
+  #bm-lp .bm-cal-card { position: relative; }
+  #bm-lp .bm-cal-card.is-loading::after {
+    content: ""; position: absolute; left: 50%; top: 150px; width: 38px; height: 38px; margin-left: -19px; z-index: 0;
+    border-radius: 50%; border: 3px solid var(--bm-beige-light); border-top-color: var(--bm-gold-tan); animation: bm-spin 0.9s linear infinite;
+  }
+  #bm-lp #bm-cal-slot { position: relative; z-index: 1; }
+  @keyframes bm-spin { to { transform: rotate(360deg); } }
   #bm-lp #bm-cal-slot iframe { display: block; width: 100%; height: 1040px; border: 0; }
   #bm-lp .bm-cal-placeholder {
     min-height: 620px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
@@ -304,6 +315,18 @@
     #bm-lp .bm-faq__a { padding-right: 4px; }
     #bm-lp .bm-footer__top { flex-direction: column; gap: 22px; }
     #bm-lp .bm-footer__info { text-align: left; }
+    #bm-lp .bm-open { padding: 40px 0 56px; }
+    #bm-lp .bm-open .bm-h1 { margin-bottom: 22px; }
+    #bm-lp .bm-section .bm-head-block.bm-center, #bm-lp .bm-section .bm-head-block.bm-center + * + .bm-note, #bm-lp .bm-section .bm-note { text-align: left; }
+    #bm-lp .bm-section .bm-head-block.bm-center .bm-eyebrow { justify-content: flex-start; }
+    #bm-lp .bm-price-card .bm-btn { padding: 17px 16px; font-size: 14px; letter-spacing: 0.03em; text-align: center; }
+    #bm-lp .bm-creds__inner { padding-top: 18px; padding-bottom: 18px; }
+    #bm-lp .bm-creds p { text-align: left; display: grid; gap: 10px; }
+    #bm-lp .bm-sep { display: none; }
+    #bm-lp .bm-cred { white-space: normal; display: flex; gap: 10px; align-items: flex-start; }
+    #bm-lp .bm-cred::before { content: ""; flex: none; width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: var(--bm-grad-hl); }
+    #bm-lp .bm-policy a, #bm-lp .bm-footer__links a, #bm-lp .bm-ask a { display: inline-block; padding: 11px 0; }
+    #bm-lp .bm-footer__links { gap: 0 24px; padding-top: 12px; }
   }
   @media (max-width: 389px) {
     #bm-lp .bm-progress li, #bm-lp .bm-progress li + li { font-size: 11.5px; }
@@ -347,9 +370,9 @@
         <p class="bm-eyebrow" data-bm-show="survey" hidden>YOUR ANSWERS ARE IN</p>
         <h1 class="bm-h1">Let&rsquo;s Talk About <span class="bm-gold-text">Getting Back</span> to What You Enjoy</h1>
         <div class="bm-body">
-          <p data-bm-show="direct">If you&rsquo;re exploring bunion treatment, this visit gives you time with Dr. Tagge to understand your options.</p>
-          <p data-bm-show="named" hidden>Thanks, <span data-bm-first></span>. Your answers give Dr. Tagge a starting point.</p>
-          <p data-bm-show="unnamed" hidden>Thanks for sharing your answers. They give Dr. Tagge a starting point.</p>
+          <p data-bm-show="direct">If you&rsquo;re exploring bunion treatment, this visit gives you time with Dr.&nbsp;Tagge to understand your options.</p>
+          <p data-bm-show="named" hidden>Thanks, <span data-bm-first></span>. Your answers give Dr.&nbsp;Tagge a starting point.</p>
+          <p data-bm-show="unnamed" hidden>Thanks for sharing your answers. They give Dr.&nbsp;Tagge a starting point.</p>
           <p data-bm-show="survey" hidden>At your consultation, he&rsquo;ll take a closer look at your foot, hear what you want to get back to, and explain whether his approach is right for you.</p>
           <p data-bm-show="direct">He&rsquo;ll take a closer look at your foot, hear what you want to get back to, and explain whether his approach is right for you.</p>
           <p class="bm-strong">Review the details below, then choose a time to meet.</p>
@@ -373,7 +396,7 @@
         <p class="bm-eyebrow">THE PRISM&trade; APPROACH</p>
         <h2 class="bm-h2">Your Recovery Belongs in the Plan From the Start</h2>
         <div class="bm-body bm-lead">
-          <p>You want to address your bunion without putting the rest of your life on hold. That matters to Dr. Tagge, too.</p>
+          <p>You want to address your bunion without putting the rest of your life on hold. That matters to Dr.&nbsp;Tagge, too.</p>
           <p>He built PRISM&trade; to plan the correction and the recovery together, with your foot, your health, and your daily life in mind.</p>
         </div>
       </div>
@@ -381,7 +404,7 @@
         <li class="bm-stage">
           <div class="bm-stage__top"><span class="bm-icon-dark"><svg class="bm-ico"><use href="#bm-i-search"/></svg></span><span class="bm-stage__label">Before</span></div>
           <h3 class="bm-h4">Understand What Your Foot Needs</h3>
-          <p>Dr. Tagge looks at your whole forefoot, your health history, and the activities you want back. Recovery needs are considered before surgery.</p>
+          <p>Dr.&nbsp;Tagge looks at your whole forefoot, your health history, and the activities you want back. Recovery needs are considered before surgery.</p>
         </li>
         <li class="bm-stage">
           <div class="bm-stage__top"><span class="bm-icon-dark"><svg class="bm-ico"><use href="#bm-i-target"/></svg></span><span class="bm-stage__label">During</span></div>
@@ -394,7 +417,7 @@
           <p>Your plan covers how to protect the correction, move safely, and build activity back up. Recovery support is planned around your foot and your goals.</p>
         </li>
       </ol>
-      <p class="bm-support">If a hammertoe or another forefoot issue also needs attention, Dr. Tagge will assess whether it can be addressed in the same procedure and recovery.</p>
+      <p class="bm-support">If a hammertoe or another forefoot issue also needs attention, Dr.&nbsp;Tagge will assess whether it can be addressed in the same procedure and recovery.</p>
       <p class="bm-note">Individual results vary.</p>
     </div>
   </section>
@@ -403,17 +426,17 @@
     <div class="bm-wrap">
       <div class="bm-head-block bm-center">
         <p class="bm-eyebrow">REAL PATIENTS</p>
-        <h2 class="bm-h2">What Patients Say About Dr. Tagge</h2>
+        <h2 class="bm-h2">What Patients Say About Dr.&nbsp;Tagge</h2>
       </div>
       <div class="bm-quotes">
         <figure class="bm-quote">
           <span class="bm-quote__mark" aria-hidden="true">&ldquo;</span>
-          <blockquote>Dr. Tagge is a top-notch caregiver, highly skilled in his field, with a great bedside manner. I do not know how you could do any better.</blockquote>
+          <blockquote>Dr.&nbsp;Tagge is a top-notch caregiver, highly skilled in his field, with a great bedside manner. I do not know how you could do any better.</blockquote>
           <figcaption class="bm-quote__who">W.D.</figcaption>
         </figure>
         <figure class="bm-quote">
           <span class="bm-quote__mark" aria-hidden="true">&ldquo;</span>
-          <blockquote>Thank you for the time and attention for helping me walk better without pain. Dr. Tagge was awesome, and I would recommend this practice to anyone.</blockquote>
+          <blockquote>Thank you for the time and attention for helping me walk better without pain. Dr.&nbsp;Tagge was awesome, and I would recommend this practice to anyone.</blockquote>
           <figcaption class="bm-quote__who">E.B.</figcaption>
         </figure>
       </div>
@@ -426,7 +449,7 @@
       <div>
         <p class="bm-eyebrow">THE PRISM&trade; CONSULTATION</p>
         <h2 class="bm-h2">Get a Full Assessment and Discuss a Plan for Your Foot</h2>
-        <p class="bm-lead">This is a 90-minute visit with Dr. Michael Tagge, with your exam and imaging done in one place.</p>
+        <p class="bm-lead">This is a 90-minute visit with Dr.&nbsp;Michael Tagge, with your exam and imaging done in one place.</p>
         <p class="bm-incl-title">Your Visit Includes:</p>
         <ul class="bm-incl">
           <li><span class="bm-icon-soft"><svg class="bm-ico"><use href="#bm-i-steth"/></svg></span><span>A full examination of your forefoot.</span></li>
@@ -440,7 +463,7 @@
         <p class="bm-price">The consultation is <strong class="bm-gold-text">$395.</strong></p>
         <hr>
         <ul class="bm-ticks">
-          <li><svg class="bm-ico"><use href="#bm-i-shield"/></svg><span>If Dr. Tagge determines you&rsquo;re not a candidate, your consultation fee is refunded in full.</span></li>
+          <li><svg class="bm-ico"><use href="#bm-i-shield"/></svg><span>If Dr.&nbsp;Tagge determines you&rsquo;re not a candidate, your consultation fee is refunded in full.</span></li>
           <li><svg class="bm-ico"><use href="#bm-i-check"/></svg><span>Booking a consultation doesn&rsquo;t commit you to surgery. It&rsquo;s the visit that helps you decide what to do next.</span></li>
         </ul>
         <a class="bm-btn" href="#bm-book" data-bm-book="offer">Book My $395 Consultation<svg class="bm-ico"><use href="#bm-i-down"/></svg></a>
@@ -450,8 +473,7 @@
   
   <section class="bm-creds" aria-label="Credentials">
     <div class="bm-wrap bm-creds__inner">
-      <svg class="bm-ico"><use href="#bm-i-badge"/></svg>
-      <p>ABPM Board-Certified Podiatric Physician &middot; Certified in Functional and Regenerative Medicine &middot; ABFAS Board Eligible &middot; Exclusively Focused on Minimally Invasive Forefoot Reconstruction</p>
+      <p><span class="bm-cred">ABPM Board-Certified Podiatric Physician</span><span class="bm-sep"> &middot; </span><span class="bm-cred">Certified in Functional and Regenerative Medicine</span><span class="bm-sep"> &middot; </span><span class="bm-cred">ABFAS Board Eligible</span><span class="bm-sep"> &middot; </span><span class="bm-cred">Exclusively Focused on Minimally Invasive Forefoot Reconstruction</span></p>
     </div>
   </section>
   
@@ -459,7 +481,7 @@
     <div class="bm-wrap bm-book__grid">
       <div class="bm-book__copy">
         <p class="bm-eyebrow">CHOOSE YOUR TIME</p>
-        <h2 class="bm-h2">Book Your Visit With Dr. Tagge</h2>
+        <h2 class="bm-h2">Book Your Visit With Dr.&nbsp;Tagge</h2>
         <div class="bm-body bm-lead">
           <p>Choose an available time, review your details, and complete your payment below.</p>
           <p class="bm-strong">Your appointment is confirmed once payment is complete.</p>
@@ -467,11 +489,11 @@
         <div class="bm-summary">
           <ul class="bm-ticks">
             <li><svg class="bm-ico"><use href="#bm-i-card"/></svg><span>One-time consultation payment. Surgery isn&rsquo;t included.</span></li>
-            <li><svg class="bm-ico"><use href="#bm-i-shield"/></svg><span>Full refund if Dr. Tagge determines you&rsquo;re not a candidate.</span></li>
+            <li><svg class="bm-ico"><use href="#bm-i-shield"/></svg><span>Full refund if Dr.&nbsp;Tagge determines you&rsquo;re not a candidate.</span></li>
           </ul>
           <p class="bm-policy">
-            <a href="#">Rescheduling &amp; Cancellation Policy</a><span aria-hidden="true">|</span>
-            <a href="https://drbunionmaster.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a><span aria-hidden="true">|</span>
+            <a href="#">Rescheduling &amp; Cancellation Policy</a>
+            <a href="https://drbunionmaster.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="#">Terms</a>
           </p>
         </div>
@@ -497,7 +519,7 @@
         <details>
           <summary>What does the $395 cover?<span class="bm-faq__chev"><svg class="bm-ico"><use href="#bm-i-chev"/></svg></span></summary>
           <div class="bm-faq__a">
-            <p>Your full 90-minute consultation with Dr. Tagge, including the forefoot exam, on-site x-rays, biomechanical scan, and health history review.</p>
+            <p>Your full 90-minute consultation with Dr.&nbsp;Tagge, including the forefoot exam, on-site x-rays, biomechanical scan, and health history review.</p>
             <p>He&rsquo;ll assess whether you&rsquo;re a candidate and discuss a correction and recovery plan if his approach is appropriate for you.</p>
           </div>
         </details>
@@ -505,14 +527,14 @@
           <summary>Does the consultation include surgery?<span class="bm-faq__chev"><svg class="bm-ico"><use href="#bm-i-chev"/></svg></span></summary>
           <div class="bm-faq__a">
             <p>No. You&rsquo;re booking an assessment, not an operation.</p>
-            <p>If surgery is appropriate, Dr. Tagge will explain the recommended procedure and its all-inclusive price during your visit.</p>
+            <p>If surgery is appropriate, Dr.&nbsp;Tagge will explain the recommended procedure and its all-inclusive price during your visit.</p>
           </div>
         </details>
         <details>
           <summary>Do I need to bring my own x-rays?<span class="bm-faq__chev"><svg class="bm-ico"><use href="#bm-i-chev"/></svg></span></summary>
           <div class="bm-faq__a">
             <p>No. Your x-rays and biomechanical scan are done at the visit.</p>
-            <p>If you have recent imaging, bring it along for Dr. Tagge to review.</p>
+            <p>If you have recent imaging, bring it along for Dr.&nbsp;Tagge to review.</p>
           </div>
         </details>
         <details>
@@ -523,7 +545,7 @@
           </div>
         </details>
       </div>
-      <p class="bm-ask">Have a question before you book? <a href="#">Ask Dr. Tagge.</a></p>
+      <p class="bm-ask">Have a question before you book? <a href="#">Ask Dr.&nbsp;Tagge.</a></p>
     </div>
   </section>
   
@@ -532,7 +554,7 @@
       <div class="bm-footer__top">
         <div class="bm-footer__logo"><img src="../img/logo-bunion-master-prism-gold-dark.webp" alt="Bunion Master, Advanced Foot Surgery, PRISM&trade;" width="526" height="145" loading="lazy" decoding="async"></div>
         <address class="bm-footer__info">
-          <strong>Dr. Michael Tagge, DPM</strong><br>
+          <strong>Dr.&nbsp;Michael Tagge, DPM</strong><br>
           MJT Podiatry S.C.<br>
           2333 N. Harlem Avenue, Chicago, IL 60707<br>
           By appointment only
@@ -606,6 +628,8 @@
     f.title = 'Book your PRISM Consultation';
     f.setAttribute('allow', 'payment');
     slot.innerHTML = '';
+    var card = slot.parentNode;
+    if (card) card.classList.add('is-loading');
     slot.appendChild(f);
   }
   if ('IntersectionObserver' in window) {
