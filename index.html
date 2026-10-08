@@ -220,7 +220,7 @@
   }
   #bm-lp .bm-icon-soft {
     width: 56px; height: 56px; border-radius: 50%; background: var(--bm-beige-light); color: var(--bm-gold-tan);
-    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px;
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px; flex: none;
   }
   #bm-lp .bm-icon-soft .bm-ico { width: 26px; height: 26px; }
   #bm-lp .bm-card .bm-h4 { margin-bottom: 12px; }
@@ -232,7 +232,7 @@
   
   #bm-lp .bm-message__grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 80px; align-items: center; }
   #bm-lp .bm-message .bm-photo { aspect-ratio: 4 / 5; }
-  #bm-lp .bm-message .bm-photo img { object-position: 50% 30%; }
+  #bm-lp .bm-message .bm-photo img { object-position: 50% 25%; }
   #bm-lp .bm-message .bm-h2 { margin-bottom: 30px; }
   #bm-lp .bm-letter p { font-size: 18px; line-height: 1.7; }
   #bm-lp .bm-letter p:first-child { color: var(--bm-ivory); font-size: 20px; }
@@ -287,7 +287,7 @@
   #bm-lp .bm-creds .bm-ico { width: 22px; height: 22px; color: var(--bm-gold-beige); }
   
   #bm-lp .bm-includes {
-    margin: 0 auto; max-width: 1040px; padding: 36px 40px; border-radius: 20px;
+    margin: 0 auto; padding: 36px 40px; border-radius: 20px;
     background: var(--bm-white); border: 1px solid var(--bm-line); box-shadow: 0 24px 50px -40px rgba(23, 23, 23, 0.45);
   }
   #bm-lp .bm-includes .bm-h4 { margin-bottom: 24px; }
@@ -401,6 +401,7 @@
     #bm-lp .bm-btn { width: 100%; padding: 17px 20px; white-space: normal; }
     #bm-lp .bm-header .bm-btn { width: auto; white-space: nowrap; }
     #bm-lp .bm-head-block { margin-bottom: 40px; }
+    #bm-lp .bm-center .bm-eyebrow { flex-direction: column; gap: 10px; text-align: center; }
     #bm-lp .bm-trust__list { grid-template-columns: minmax(0, 1fr); }
     #bm-lp .bm-trust__item { padding: 18px 4px; border-left: 0 !important; }
     #bm-lp .bm-trust__item + .bm-trust__item { border-top: 1px solid var(--bm-line); }
@@ -599,8 +600,8 @@
       <div class="bm-message__media">
         <figure class="bm-photo">
           <picture>
-            <source srcset="img/message-tagge-seated.avif" type="image/avif">
-            <img src="img/message-tagge-seated.webp" alt="Dr. Michael Tagge seated in his office" width="1000" height="1500" loading="lazy" decoding="async">
+            <source srcset="img/message-tagge-scrubs.avif" type="image/avif">
+            <img src="img/message-tagge-scrubs.webp" alt="Dr. Michael Tagge in scrubs" width="1000" height="1500" loading="lazy" decoding="async">
           </picture>
         </figure>
       </div>
