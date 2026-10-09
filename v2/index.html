@@ -142,7 +142,13 @@
       var(--bm-charcoal);
   }
   #bm-lp .bm-hero__grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 72px; align-items: start; }
-  #bm-lp .bm-hero .bm-h1 { margin-bottom: 30px; }
+  #bm-lp .bm-hero .bm-h1 { font-size: clamp(40px, 4.4vw, 60px); margin-bottom: 30px; }
+  @media (min-width: 901px) and (max-height: 860px) {
+    #bm-lp .bm-hero { padding-top: 56px; }
+    #bm-lp .bm-hero .bm-h1 { font-size: clamp(40px, 4vw, 52px); margin-bottom: 22px; }
+    #bm-lp .bm-hero .bm-points { margin-top: 22px; }
+    #bm-lp .bm-hero .bm-cta-row { margin-top: 28px; }
+  }
   #bm-lp .bm-hero__copy .bm-body p { font-size: 18px; }
   #bm-lp .bm-hero__copy .bm-body p.bm-strong { font-size: 19px; line-height: 1.55; }
   #bm-lp .bm-hero .bm-cta-row .bm-caption { max-width: 440px; }
@@ -371,7 +377,7 @@
   #bm-lp .bm-disclaimer__link { text-decoration: underline; text-decoration-color: rgba(219, 189, 119, 0.5); text-underline-offset: 4px; }
   
   #bm-lp .bm-points { margin-top: 28px; }
-  #bm-lp .bm-points__label { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bm-gold-beige); margin-bottom: 12px; }
+  #bm-lp .bm-points__label { font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bm-gold-beige); margin-bottom: 12px; }
   #bm-lp .bm-points ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   #bm-lp .bm-points li {
     display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; border-radius: 12px;
@@ -530,16 +536,16 @@
     <div class="bm-wrap bm-hero__grid">
       <div class="bm-hero__copy">
         <p class="bm-eyebrow">MINIMALLY INVASIVE BUNION CORRECTION</p>
-        <h1 class="bm-h1">Enjoy an <span class="bm-gold-text">Active Life</span> Without Planning It Around Your Bunion</h1>
+        <h1 class="bm-h1">How Much of Your Life Have You <span class="bm-gold-text">Quietly Reorganized</span> Around a Bunion?</h1>
         <div class="bm-body">
-          <p>Most people aren&rsquo;t afraid of the procedure. They&rsquo;re afraid of the recovery. Work, family, and the things you enjoy don&rsquo;t stop because your foot needs care.</p>
-          <p class="bm-strong">Dr.&nbsp;Michael Tagge, a Chicago foot surgeon, built PRISM&trade; to plan your correction and your recovery together, so you can make plans around what you want to do, not what your foot will tolerate.</p>
+          <p>Most people aren&rsquo;t afraid of the procedure. They&rsquo;re afraid of the recovery. Work and family don&rsquo;t stop because your foot needs care.</p>
+          <p class="bm-strong">Dr.&nbsp;Michael Tagge, a Chicago foot surgeon, built PRISM&trade; to design your correction and your recovery together.</p>
         </div>
         <div class="bm-points">
           <p class="bm-points__label">In most cases:</p>
           <ul>
             <li><svg class="bm-ico"><use href="#bm-i-check"/></svg>No screws or plates left in your foot</li>
-            <li><svg class="bm-ico"><use href="#bm-i-check"/></svg>Local anesthesia, no general anesthesia</li>
+            <li><svg class="bm-ico"><use href="#bm-i-check"/></svg>No general anesthesia</li>
             <li><svg class="bm-ico"><use href="#bm-i-check"/></svg>Walk out the same day in a protective sandal</li>
           </ul>
         </div>
@@ -588,7 +594,7 @@
           <h2 class="bm-h2">Foot Surgery Doesn&rsquo;t Have to Disrupt Your Life</h2>
           <div class="bm-body bm-lead">
             <p>You stay active, and you ask questions about your health. The last thing you want is to depend on someone else while you recover.</p>
-            <p>So when the bunion starts getting in the way, the decision gets frustrating. Living with it takes something away, but the surgery you&rsquo;ve heard about sounds like it could take away even more.</p>
+            <p>So when the bunion starts getting in the way, deciding what to do about it gets frustrating. Living with it takes something away, but the surgery you&rsquo;ve heard about sounds like it could take away even more.</p>
           </div>
         </div>
         <div>
@@ -614,7 +620,7 @@
         <img class="bm-prism-logo" src="../img/logo-prism-gold-light.webp" alt="PRISM&trade; Reconstruction System" width="280" height="322" loading="lazy" decoding="async">
         <p class="bm-eyebrow">HOW DR. TAGGE APPROACHES SURGERY</p>
         <h2 class="bm-h2">Plan the Recovery Before the First Incision</h2>
-        <p class="bm-lead">Dr.&nbsp;Tagge starts with what your foot is keeping you from doing. Then he plans the correction and the recovery together, so you know how you&rsquo;ll keep moving before surgery day arrives.</p>
+        <p class="bm-lead">Dr.&nbsp;Tagge starts with what your foot is keeping you from doing. By surgery day, you already know how you&rsquo;ll keep moving through the recovery.</p>
       </div>
       <ol class="bm-stages bm-stages--timeline">
         <li class="bm-stage">
@@ -627,13 +633,13 @@
           <div class="bm-stage__top"><span class="bm-icon-dark"><svg class="bm-ico"><use href="#bm-i-target"/></svg></span></div>
           <p class="bm-stage__label"><span class="bm-stage__n">02</span>SURGERY DAY</p>
           <h3 class="bm-h4">Correct it through tiny incisions.</h3>
-          <p class="bm-stage__text">The correction is made through incisions as small as 4mm, limiting damage to the tissue around the bone.</p>
+          <p class="bm-stage__text">Keeping the openings small limits damage to the tissue around the bone.</p>
         </li>
         <li class="bm-stage">
           <div class="bm-stage__top"><span class="bm-icon-dark"><svg class="bm-ico"><use href="#bm-i-feet"/></svg></span></div>
           <p class="bm-stage__label"><span class="bm-stage__n">03</span>RECOVERY</p>
           <h3 class="bm-h4">Protect the correction while you keep moving.</h3>
-          <p class="bm-stage__text">Biologic support is built in at a level matched to your goals, and Dr.&nbsp;Tagge sees you for follow-up as your activity builds.</p>
+          <p class="bm-stage__text">Recovery support is built into the plan, and Dr.&nbsp;Tagge sees you for follow-up as your activity builds.</p>
         </li>
       </ol>
       <p class="bm-note">Surgery carries risks, and recovery varies. Some patients need temporary walking aids or a different approach.</p>
@@ -645,23 +651,23 @@
             <ol class="bm-prism-rows">
               <li class="bm-prism-row">
                 <span class="bm-letter-tile"><span class="bm-gold-text">P</span></span>
-                <div><h3 class="bm-h4">Precision minimally invasive correction</h3><p>Tiny incisions, accurate correction. Minimally invasive should never mean minimally corrective.</p></div>
+                <div><h3 class="bm-h4">Precision minimally invasive correction</h3><p>The correction goes through tiny incisions, and it still has to be accurate. Minimally invasive should never mean minimally corrective.</p></div>
               </li>
               <li class="bm-prism-row">
                 <span class="bm-letter-tile"><span class="bm-gold-text">R</span></span>
-                <div><h3 class="bm-h4">Regenerative biologic support</h3><p>Built into the recovery plan at a level matched to your goals.</p></div>
+                <div><h3 class="bm-h4">Regenerative biologic support</h3><p>When it&rsquo;s appropriate, biologic support becomes part of your recovery, at a level matched to your goals.</p></div>
               </li>
               <li class="bm-prism-row">
                 <span class="bm-letter-tile"><span class="bm-gold-text">I</span></span>
-                <div><h3 class="bm-h4">Intrinsic healing optimization</h3><p>Health factors that affect healing, improved before surgery.</p></div>
+                <div><h3 class="bm-h4">Intrinsic healing optimization</h3><p>Anything in your health that could slow healing gets worked on before surgery.</p></div>
               </li>
               <li class="bm-prism-row">
                 <span class="bm-letter-tile"><span class="bm-gold-text">S</span></span>
-                <div><h3 class="bm-h4">Surgical correction stability</h3><p>Protection for the correction while it heals, balanced with safe movement.</p></div>
+                <div><h3 class="bm-h4">Surgical correction stability</h3><p>The plan keeps the correction stable while it heals, without giving up safe movement.</p></div>
               </li>
               <li class="bm-prism-row">
                 <span class="bm-letter-tile"><span class="bm-gold-text">M</span></span>
-                <div><h3 class="bm-h4">Mechanical optimization</h3><p>How the whole forefoot bears weight and moves, so the plan covers life after the bone has healed.</p></div>
+                <div><h3 class="bm-h4">Mechanical optimization</h3><p>The plan accounts for how your whole forefoot bears weight and moves, so it covers life after the bone has healed.</p></div>
               </li>
             </ol>
           </div>
@@ -674,25 +680,28 @@
     <div class="bm-wrap bm-center">
       <div class="bm-head-block">
         <p class="bm-eyebrow">WHAT WOULD YOU GET BACK TO?</p>
-        <h2 class="bm-h2">The X-Ray Shows the Structure. You Name the Destination.</h2>
-        <p class="bm-lead">Dr.&nbsp;Tagge plans treatment around the difference you want it to make in daily life, so that&rsquo;s where the conversation starts.</p>
+        <h2 class="bm-h2">Your Plan Starts With Where You Want to Go</h2>
+        <p class="bm-lead">The x-ray shows Dr.&nbsp;Tagge the structure. You tell him the destination, and that&rsquo;s where the conversation starts.</p>
       </div>
       <div class="bm-cards3" style="text-align:left">
         <article class="bm-card">
           <span class="bm-icon-soft"><svg class="bm-ico"><use href="#bm-i-feet"/></svg></span>
           <h3 class="bm-h4">Say Yes to the Longer Walk</h3>
-          <p>Explore a city on vacation, finish a round of golf, or keep up with family without working out when your foot will need a break.</p>
+          <p>Explore a city on vacation or finish a round of golf without having to guess when your foot will need a break.</p>
         </article>
         <article class="bm-card">
           <span class="bm-icon-soft"><svg class="bm-ico"><use href="#bm-i-dumbbell"/></svg></span>
           <h3 class="bm-h4">Wear the Shoes You Gave Up On</h3>
-          <p>Pick shoes to match the outfit again, and get back to the workout you quietly dropped.</p>
+          <p>Pick shoes to match the outfit again, and get back to the workout you dropped.</p>
         </article>
         <article class="bm-card">
           <span class="bm-icon-soft"><svg class="bm-ico"><use href="#bm-i-person"/></svg></span>
           <h3 class="bm-h4">Protect Your Independence</h3>
-          <p>Moving around and caring for yourself matter during recovery, too. Dr.&nbsp;Tagge plans for as much safe mobility as the correction allows.</p>
+          <p>Tell Dr.&nbsp;Tagge who counts on you at work and at home. He plans for as much safe movement as the correction allows.</p>
         </article>
+      </div>
+      <div class="bm-cta-row bm-center">
+        <a class="bm-btn" href="#bm-survey" data-bm-cta="life-after">CHECK YOUR CANDIDACY<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -702,7 +711,7 @@
       <div class="bm-head-block bm-center">
         <p class="bm-eyebrow">PUTTING IT OFF DOESN&rsquo;T MEAN YOU&rsquo;VE BEEN CARELESS</p>
         <h2 class="bm-h2">Is the Surgery You&rsquo;re Afraid Of the One You&rsquo;d Actually Need?</h2>
-        <p class="bm-lead">A friend&rsquo;s hard recovery or advice from years ago can stay with you. It still doesn&rsquo;t tell you what your foot needs today.</p>
+        <p class="bm-lead">A friend&rsquo;s hard recovery or advice from years ago can stay with you. Neither one tells you what your foot needs today.</p>
       </div>
       <div class="bm-cards3">
         <article class="bm-card">
@@ -718,7 +727,7 @@
         <article class="bm-card">
           <span class="bm-num">03</span>
           <h3 class="bm-h4">Someone Else&rsquo;s Recovery Isn&rsquo;t Your Surgical Plan</h3>
-          <p>An exam and a full conversation show which parts of the recovery you&rsquo;ve imagined actually apply to your foot, your health, and your schedule.</p>
+          <p>An exam and a full conversation show how much of the recovery you&rsquo;ve imagined actually applies to your foot.</p>
         </article>
       </div>
     </div>
@@ -839,7 +848,7 @@
       <div class="bm-faq">
         <details>
           <summary>Does Completing the Survey Mean I&rsquo;m a Surgical Candidate?<span class="bm-faq__chev"><svg class="bm-ico"><use href="#bm-i-chev"/></svg></span></summary>
-          <div class="bm-faq__a"><p>No. The survey checks whether the practice fits your needs and plans. Dr.&nbsp;Tagge determines clinical candidacy during the consultation, after the exam, imaging, and history review.</p></div>
+          <div class="bm-faq__a"><p>No. The survey checks whether the practice fits your needs and plans. Only Dr.&nbsp;Tagge can tell you whether you&rsquo;re a candidate, and only after the exam, imaging, and history review at your consultation.</p></div>
         </details>
         <details>
           <summary>What If I&rsquo;ve Already Been Told I Need Surgery?<span class="bm-faq__chev"><svg class="bm-ico"><use href="#bm-i-chev"/></svg></span></summary>
@@ -861,7 +870,7 @@
           <summary>What Should I Know About Price and Insurance?<span class="bm-faq__chev"><svg class="bm-ico"><use href="#bm-i-chev"/></svg></span></summary>
           <div class="bm-faq__a">
             <p>The practice is cash-pay, and surgery isn&rsquo;t billed to insurance. Out-of-network benefits may apply. Regenerative components aren&rsquo;t covered by insurance.</p>
-            <p>You&rsquo;ll see the consultation fee and refund terms on the booking page before you choose a time. If surgery is recommended, the practice provides one all-inclusive price for the plan, with no separate facility or anesthesia bills.</p>
+            <p>If your survey answers fit the practice, the booking page shows the consultation fee and refund terms before you choose a time. If surgery is recommended, the practice provides one all-inclusive price for the plan, with no separate facility or anesthesia bills.</p>
           </div>
         </details>
         <details>
