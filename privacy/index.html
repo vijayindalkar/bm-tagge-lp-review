@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  html, body { overflow-x: clip; scroll-behavior: smooth; }
+  html, body { overflow-x: clip; }
   #bm-lp {
     --bm-charcoal: #171717;
     --bm-beige-light: #EFECE5;
@@ -76,7 +76,15 @@
   #bm-lp .bm-toc__label { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bm-gold-ink); margin-bottom: 10px; }
   #bm-lp .bm-toc a { display: block; padding: 6px 0; font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--bm-ink-2); text-decoration: none; border-left: 2px solid transparent; padding-left: 10px; margin-left: -12px; }
   #bm-lp .bm-toc a:hover { color: var(--bm-ink); border-left-color: var(--bm-gold-tan); }
-  #bm-lp .bm-content { max-width: 760px; padding: 48px 52px; border-radius: 20px; background: var(--bm-white); border: 1px solid var(--bm-line); }
+  #bm-lp .bm-content { max-width: 760px; padding: 48px 52px; border-radius: 20px; background: var(--bm-white); border: 1px solid var(--bm-line); grid-column: 2; scroll-margin-top: 24px; }
+  #bm-lp .bm-toc { grid-row: 1 / span 3; }
+  #bm-lp .bm-content--extra { margin-top: 28px; }
+  #bm-lp .bm-content h2.bm-part { margin-top: 0; padding-top: 0; border-top: 0; }
+  #bm-lp .bm-content h4 { font-size: 17px; font-weight: 600; color: var(--bm-ink); margin: 22px 0 6px; }
+  #bm-lp .bm-caps { letter-spacing: 0.01em; }
+  #bm-lp .bm-dates--light { margin: 0 0 22px; }
+  #bm-lp .bm-dates--light span { color: var(--bm-gold-ink); border-color: rgba(164, 127, 62, 0.4); }
+  #bm-lp .bm-toc__group { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--bm-line); }
   #bm-lp .bm-intro { font-size: 18px; color: var(--bm-ink); }
   #bm-lp .bm-content h2 {
     font-family: var(--bm-head); font-weight: 600; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -0.025em;
@@ -103,7 +111,8 @@
     #bm-lp .bm-doc__grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
     #bm-lp .bm-toc { position: static; }
     #bm-lp .bm-toc ol { columns: 2; column-gap: 24px; }
-    #bm-lp .bm-content { max-width: none; }
+    #bm-lp .bm-content { max-width: none; grid-column: auto; }
+    #bm-lp .bm-toc { grid-row: auto; }
   }
   @media (max-width: 767px) {
     #bm-lp { font-size: 16px; }
@@ -151,6 +160,10 @@
           <li><a href="#pp-children">Children&rsquo;s Privacy</a></li>
           <li><a href="#pp-changes">Changes to This Policy</a></li>
           <li><a href="#pp-contact">Contact Information</a></li>
+        </ol>
+        <ol class="bm-toc__group">
+          <li><a href="#medical-disclaimer">Medical Disclaimer</a></li>
+          <li><a href="#notice-of-privacy-practices">Notice of Privacy Practices (HIPAA)</a></li>
         </ol>
       </nav>
       <article class="bm-content">
@@ -227,18 +240,18 @@
         <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
         <p>Information may be shared only as necessary to operate our practice, comply with legal obligations, or provide services to you.</p>
         <p>This may include appropriate service providers that support our website, communications, scheduling, patient-management systems, payment processing, technology, security, or other practice operations. Information may also be disclosed when required or permitted by applicable law.</p>
-        <p>When information constitutes protected health information, its use and disclosure are also governed by applicable healthcare privacy law and our Notice of Privacy Practices.</p>
+        <p>When information constitutes protected health information, its use and disclosure are also governed by applicable healthcare privacy law and our <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a>.</p>
         <h2 id="pp-hipaa">Health Information and HIPAA</h2>
         <p>MJT Podiatry S.C. DBA Dr. Bunionmaster is a healthcare practice. Information obtained in connection with your medical evaluation, treatment, care coordination, or other healthcare services may constitute protected health information (&ldquo;PHI&rdquo;) under the Health Insurance Portability and Accountability Act (&ldquo;HIPAA&rdquo;) or other applicable healthcare privacy laws.</p>
-        <p>The use and disclosure of protected health information, your rights concerning that information, and the Practice&rsquo;s responsibilities as a healthcare provider are described in our separate <a href="https://drbunionmaster.com/notice-of-privacy-practices-hipaa/" target="_blank" rel="noopener">Notice of Privacy Practices</a>.</p>
-        <p>Notice of Privacy Practices: <a href="https://drbunionmaster.com/notice-of-privacy-practices-hipaa/" target="_blank" rel="noopener">https://drbunionmaster.com/notice-of-privacy-practices-hipaa/</a></p>
+        <p>The use and disclosure of protected health information, your rights concerning that information, and the Practice&rsquo;s responsibilities as a healthcare provider are described in our separate <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a>.</p>
+        <p><a href="#notice-of-privacy-practices">Notice of Privacy Practices</a>: <a href="https://drbunionmaster.com/notice-of-privacy-practices-hipaa/" target="_blank" rel="noopener">https://drbunionmaster.com/notice-of-privacy-practices-hipaa/</a></p>
         <p>This Privacy Policy &amp; SMS Terms and Conditions applies generally to our website, personal information, electronic communications, and SMS program.</p>
-        <p>Our Notice of Privacy Practices specifically governs protected health information subject to HIPAA and other applicable healthcare privacy requirements.</p>
-        <p>Where information is protected by HIPAA or another healthcare privacy law, the applicable legal requirements and Notice of Privacy Practices control.</p>
+        <p>Our <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a> specifically governs protected health information subject to HIPAA and other applicable healthcare privacy requirements.</p>
+        <p>Where information is protected by HIPAA or another healthcare privacy law, the applicable legal requirements and <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a> control.</p>
         <h2 id="pp-forms">Website Forms and Electronic Communications</h2>
         <p>Information submitted through website forms, email, SMS, telephone communications, patient portals, or other electronic methods may be used to respond to your inquiry, coordinate requested services, communicate with you, or facilitate your relationship with the Practice.</p>
         <p>Electronic communication methods can involve privacy and security risks despite reasonable safeguards. Please do not use ordinary website forms, email, or SMS for medical emergencies.</p>
-        <p>Information submitted before establishment of a patient relationship may not necessarily constitute protected health information under HIPAA. Once information is maintained by the Practice as protected health information, our Notice of Privacy Practices and applicable healthcare privacy laws apply.</p>
+        <p>Information submitted before establishment of a patient relationship may not necessarily constitute protected health information under HIPAA. Once information is maintained by the Practice as protected health information, our <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a> and applicable healthcare privacy laws apply.</p>
         <h2 id="pp-cookies">Cookies, Website Technology, and Analytics</h2>
         <p>Our website may use cookies, analytics technologies, security tools, or similar technologies to maintain website functionality, understand website use, improve user experience, evaluate performance, and protect the website from misuse.</p>
         <p>Depending on the technology involved, information collected may include browser type, device information, IP address, referring website, pages viewed, and general interaction with the website.</p>
@@ -255,9 +268,9 @@
           <li>Ask us to discontinue SMS communications by replying STOP</li>
           <li>Contact us if a telephone number or email address should no longer be used</li>
           <li>Ask questions about this Privacy Policy</li>
-          <li>Exercise applicable rights concerning protected health information as described in our Notice of Privacy Practices</li>
+          <li>Exercise applicable rights concerning protected health information as described in our <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a></li>
         </ul>
-        <p>Rights relating specifically to your medical records and other protected health information are described in the Practice&rsquo;s Notice of Privacy Practices.</p>
+        <p>Rights relating specifically to your medical records and other protected health information are described in the Practice&rsquo;s <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a>.</p>
         <h2 id="pp-children">Children&rsquo;s Privacy</h2>
         <p>Our website and SMS communications are intended primarily for individuals seeking information concerning healthcare services and for patients or their authorized representatives.</p>
         <p>If information concerning a minor is provided to us in connection with healthcare, we handle that information in accordance with applicable healthcare and privacy laws and the authority of the minor&rsquo;s parent, guardian, or other legally authorized representative.</p>
@@ -274,8 +287,95 @@
           <p><span class="bm-label">Email:</span> <a href="mailto:contact@drbunionmaster.com">contact@drbunionmaster.com</a></p>
           <p><span class="bm-label">Website:</span> <a href="https://drbunionmaster.com" target="_blank" rel="noopener">https://drbunionmaster.com</a></p>
         </div>
-        <p style="margin-top:18px">For questions specifically concerning protected health information or your HIPAA privacy rights, please review the Practice&rsquo;s Notice of Privacy Practices:</p>
+        <p style="margin-top:18px">For questions specifically concerning protected health information or your HIPAA privacy rights, please review the Practice&rsquo;s <a href="#notice-of-privacy-practices">Notice of Privacy Practices</a>:</p>
         <p><a href="https://drbunionmaster.com/notice-of-privacy-practices-hipaa/" target="_blank" rel="noopener">https://drbunionmaster.com/notice-of-privacy-practices-hipaa/</a></p>
+      </article>
+      <article class="bm-content bm-content--extra" id="medical-disclaimer">
+        <h2 class="bm-part">Medical Disclaimer</h2>
+        <p>This page provides general information and isn&rsquo;t a substitute for a medical evaluation. Candidacy is determined during consultation. Surgery carries risks. Individual results and recovery vary. Regenerative components aren&rsquo;t covered by insurance.</p>
+      </article>
+      <article class="bm-content bm-content--extra" id="notice-of-privacy-practices">
+        <h2 class="bm-part">Notice of Privacy Practices (HIPAA)</h2>
+        <p class="bm-dates bm-dates--light"><span>Effective September 1, 2026</span></p>
+          <p class="bm-strong bm-caps">THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.</p>
+          <p>This Notice applies to protected health information maintained by MJT Podiatry S.C. DBA Dr. Bunionmaster (the “Practice”), including information created or received in connection with in-person care, telehealth, patient-portal communications, diagnostic imaging, surgical planning, treatment, billing, and care coordination.</p>
+          <h3>Your Rights</h3>
+          <p>You have the right to:</p>
+          <ul>
+            <li>Inspect or obtain an electronic or paper copy of your medical record and other health information we maintain about you.</li>
+            <li>Ask us to correct health information that you believe is incorrect or incomplete.</li>
+            <li>Ask us to communicate with you in a particular way or at a particular location.</li>
+            <li>Ask us to limit certain uses or disclosures of your health information.</li>
+            <li>Receive an accounting of certain disclosures we have made.</li>
+            <li>Obtain a paper copy of this Notice, even if you previously agreed to receive it electronically.</li>
+            <li>Choose a personal representative who may exercise your privacy rights when legally authorized.</li>
+            <li>File a complaint if you believe your privacy rights have been violated.</li>
+          </ul>
+          <h3>How to Exercise Your Rights</h3>
+          <h4>Access or obtain a copy of your record</h4>
+          <p>You may ask to inspect or receive an electronic or paper copy of your medical record and other health information we maintain about you. We will ordinarily provide a copy or summary within 30 days after receiving a valid request. We may charge a reasonable, cost-based fee as permitted by law. In limited circumstances, we may deny access; when review of a denial is available, we will explain how to request it.</p>
+          <h4>Ask us to correct your record</h4>
+          <p>You may ask us in writing to amend information that you believe is incorrect or incomplete. We may deny the request in circumstances permitted by law, but we will explain the reason in writing, ordinarily within 60 days, and describe any additional rights you may have.</p>
+          <h4>Request confidential communications</h4>
+          <p>You may ask us to contact you in a specific way—for example, only through the patient portal or at a particular telephone number—or to send mail to a different address. We will accommodate reasonable requests. Please tell us if a communication method becomes unsafe or should no longer be used.</p>
+          <h4>Ask us to limit what we use or disclose</h4>
+          <p>You may ask us not to use or disclose certain health information for treatment, payment, or healthcare operations. We are not required to agree to every request, and we may decline when the restriction could affect your care or cannot reasonably be implemented. If we agree, we will follow the restriction except when the information is needed for emergency treatment or when disclosure is otherwise required by law.</p>
+          <p>If you pay out of pocket in full for a particular service or healthcare item, you may ask us not to disclose information about that service or item to your health plan for payment or healthcare operations. We will honor that request unless the disclosure is required by law.</p>
+          <h4>Receive an accounting of disclosures</h4>
+          <p>You may ask for a list of certain disclosures of your health information made during the six years before your request. The accounting does not include every disclosure, such as most disclosures for treatment, payment, or healthcare operations and disclosures you specifically authorized. One accounting during any 12-month period is provided without charge; we may charge a reasonable, cost-based fee for an additional accounting during the same period.</p>
+          <h4>Choose someone to act for you</h4>
+          <p>A person who has legal authority to act for you—such as a healthcare power of attorney, parent or guardian, or other authorized personal representative—may exercise your rights and make choices about your health information. We will verify the person’s authority before acting on a request.</p>
+          <h3>Your Choices</h3>
+          <p>When appropriate, you may tell us whether and how to:</p>
+          <ul>
+            <li>Share relevant information with family members, close friends, caregivers, or others involved in your care or payment for your care.</li>
+            <li>Share information with a disaster-relief organization to help notify others about your condition, location, or safety.</li>
+          </ul>
+          <p>If you cannot tell us your preference—for example, because you are unconscious—we may disclose limited information when we believe it is in your best interest. We may also disclose information when necessary to prevent or lessen a serious and imminent threat to health or safety.</p>
+          <p>We do not maintain a hospital directory. We do not sell your protected health information. We do not use protected health information for fundraising. We will obtain your written authorization before using or disclosing protected health information for marketing when HIPAA requires authorization, before selling protected health information, and before most uses or disclosures of psychotherapy notes. You may revoke an authorization in writing at any time, except to the extent we have already acted in reliance on it.</p>
+          <h3>How We Typically Use and Disclose Health Information</h3>
+          <h4>Treatment</h4>
+          <p>We may use and disclose your health information to provide, coordinate, or manage your care. For example, we may share relevant information with a primary care physician, imaging facility, laboratory, pharmacy, surgical facility, therapist, or another clinician involved in your care.</p>
+          <h4>Payment</h4>
+          <p>We may use and disclose health information to obtain payment, process patient payments, provide requested billing documentation or superbills, respond to coverage or reimbursement questions, and conduct related billing activities. For example, at your request or when otherwise permitted, we may provide information needed for an out-of-network claim. Our use of health information for payment does not change the Practice’s cash-pay or out-of-network status.</p>
+          <h4>Healthcare operations</h4>
+          <p>We may use and disclose health information to operate the Practice, maintain and improve quality, train or evaluate personnel, conduct compliance and risk-management activities, support secure technology, coordinate business functions, and communicate with you about your care. For example, we may review records to evaluate treatment outcomes or improve patient instructions.</p>
+          <h3>Other Uses and Disclosures Allowed or Required by Law</h3>
+          <p>We may use or disclose health information without your written authorization when the law permits or requires it. We must meet applicable legal conditions before doing so. These purposes may include:</p>
+          <ul>
+            <li>Public-health and safety activities, including disease prevention, product recalls, reporting adverse events, reporting suspected abuse or neglect, and preventing or reducing a serious threat to health or safety.</li>
+            <li>Health oversight activities authorized by law, including audits, investigations, inspections, licensing, and disciplinary proceedings.</li>
+            <li>Research that has been approved through a process permitted by law or that otherwise meets applicable privacy requirements.</li>
+            <li>Compliance with federal, state, or local law, including disclosures to the U.S. Department of Health and Human Services for HIPAA compliance review.</li>
+            <li>Organ and tissue donation activities.</li>
+            <li>Disclosures to a coroner, medical examiner, or funeral director when an individual dies.</li>
+            <li>Workers’ compensation and similar programs authorized by law.</li>
+            <li>Certain law-enforcement, correctional-institution, military, national-security, intelligence, and protective-service purposes.</li>
+            <li>Judicial or administrative proceedings, including responses to qualifying court orders, administrative orders, subpoenas, discovery requests, or other lawful process.</li>
+          </ul>
+          <h3>Specially Protected Information</h3>
+          <p>Some categories of information may receive greater protection under federal or Illinois law. When another law is more protective than HIPAA, we follow the more protective law. This may include certain information concerning mental health, substance-use-disorder treatment, HIV/AIDS and other communicable diseases, genetic testing, sexual assault, and reproductive healthcare. We will obtain authorization or satisfy another legal basis before using or disclosing specially protected information when required.</p>
+          <h3>Reproductive Healthcare Privacy</h3>
+          <p>HIPAA prohibits us from using or disclosing protected health information for a criminal, civil, or administrative investigation into, or proceeding against, a person for seeking, obtaining, providing, or facilitating reproductive healthcare when the healthcare was lawful under the circumstances in which it was provided, or for identifying a person for such an investigation or proceeding. For certain requests involving health oversight, judicial or administrative proceedings, law enforcement, or coroners or medical examiners, we may be required to obtain a signed attestation that the requested use or disclosure is not for a prohibited purpose.</p>
+          <h3>Substance-Use-Disorder Records</h3>
+          <p>To the extent that we receive or maintain substance-use-disorder patient records protected by 42 CFR part 2, those records receive additional protection. Such records, or testimony describing their contents, generally may not be used or disclosed in a civil, criminal, administrative, or legislative investigation or proceeding against you without your written consent or an appropriate court order and subpoena or other legal requirement. Information disclosed as permitted by HIPAA may sometimes be redisclosed by the recipient and may no longer be protected by HIPAA; additional federal or state protections may still apply.</p>
+          <h3>Our Responsibilities</h3>
+          <ul>
+            <li>We are required by law to maintain the privacy and security of your protected health information.</li>
+            <li>We must provide you with this Notice describing our legal duties and privacy practices.</li>
+            <li>We must follow the terms of the Notice currently in effect.</li>
+            <li>We will notify affected individuals following a breach of unsecured protected health information as required by law.</li>
+            <li>We will not use or disclose your information other than as described in this Notice unless you authorize us in writing or the law otherwise permits or requires the use or disclosure.</li>
+          </ul>
+          <h3>Changes to This Notice</h3>
+          <p>We may change the terms of this Notice and make the revised Notice effective for all protected health information we maintain, including information created or received before the revision. When we make a material change, the revised Notice will be available upon request, at our service location, and on our website at <a href="https://drbunionmaster.com/notice-of-privacy-practices-hipaa/" target="_blank" rel="noopener">https://drbunionmaster.com/notice-of-privacy-practices-hipaa/</a></p>
+          <h3>Questions or Complaints</h3>
+          <p>If you have questions, want to exercise a privacy right, or believe your privacy rights have been violated, contact:</p>
+          <div class="bm-contact"><address><p><span class="bm-label">Privacy Officer:</span> Michael Tagge, DPM</p><p>MJT Podiatry S.C. DBA Dr. Bunionmaster</p><p>2333 N. Harlem Avenue, Chicago, Illinois 60707</p><p><span class="bm-label">Phone:</span> <a href="tel:+12243286466">224-328-6466</a></p><p><span class="bm-label">Email:</span> <a href="mailto:contact@drbunionmaster.com">contact@drbunionmaster.com</a></p><p><span class="bm-label">Website:</span> <a href="https://drbunionmaster.com" target="_blank" rel="noopener">https://drbunionmaster.com</a></p></address></div>
+          <p>You may also file a complaint with the U.S. Department of Health and Human Services, Office for Civil Rights, by writing to 200 Independence Avenue, S.W., Washington, D.C. 20201; calling 1-877-696-6775; or visiting <a href="https://www.hhs.gov/hipaa/filing-a-complaint/index.html" target="_blank" rel="noopener">https://www.hhs.gov/hipaa/filing-a-complaint/index.html</a>.</p>
+          <p class="bm-strong">WE WILL NOT RETALIATE AGAINST YOU FOR FILING A COMPLAINT OR EXERCISING A PRIVACY RIGHT.</p>
+          <h3>Availability of This Notice</h3>
+          <p>You may request a paper copy at any time. The current electronic version is available at <a href="https://drbunionmaster.com/notice-of-privacy-practices-hipaa/" target="_blank" rel="noopener">https://drbunionmaster.com/notice-of-privacy-practices-hipaa/</a> The Practice will make the Notice available at its service location and will provide or offer it no later than the first service delivery, including when the first service is provided electronically, as required by law.</p>
       </article>
     </div>
   </section>
@@ -286,5 +386,29 @@
     </div>
   </footer>
 </div>
+<script>
+(function () {
+  function jump(smooth) {
+    var id = decodeURIComponent((location.hash || '').slice(1));
+    var el = id && document.getElementById(id);
+    if (el && el.closest('#bm-lp')) el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+  }
+  if (location.hash) {
+    var settle = function () { jump(false); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+    window.addEventListener('load', function () { settle(); setTimeout(settle, 400); });
+  }
+  var root = document.getElementById('bm-lp');
+  if (root) root.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    ev.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (history.replaceState) history.replaceState(null, '', a.getAttribute('href'));
+  });
+})();
+</script>
 </body>
 </html>
