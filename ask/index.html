@@ -10,6 +10,9 @@
 <style>html,body{margin:0;padding:0;background:#fff}</style>
 </head>
 <body>
+<script>
+if (window.self !== window.top) { try { window.top.location.href = window.location.href; } catch (e) {} }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -275,7 +278,7 @@
             <p>A question by email covers one thing at a time. The 90-minute PRISM&trade; consultation covers your whole foot.</p>
             <p>Dr. Tagge examines it, takes your x-rays and a biomechanical scan on-site, reviews your history, and gives you a direct answer on whether it can be corrected. If you are ready for that, book it instead.</p>
           </div>
-          <a class="bm-quiet" href="#" data-bm-link="book">Book the PRISM&trade; consultation<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
+          <a class="bm-quiet" href="https://consult.drbunionmaster.com/book" data-bm-link="book">Book the PRISM&trade; consultation<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
         </div>
       </div>
     </div>
@@ -290,7 +293,7 @@
         <a class="bm-btn" href="#" data-bm-link="replay">Watch the free training<svg class="bm-ico"><use href="#bm-i-play"/></svg></a>
         <div class="bm-thanks__book">
           <p>And if you would rather get a full answer on your foot in one visit, you can book your PRISM&trade; consultation any time.</p>
-          <a class="bm-quiet" href="#" data-bm-link="book">Book the PRISM&trade; consultation<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
+          <a class="bm-quiet" href="https://consult.drbunionmaster.com/book" data-bm-link="book">Book the PRISM&trade; consultation<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
         </div>
       </div>
     </div>
@@ -321,7 +324,7 @@
   var FORM_URL = 'https://forms.zohopublic.com/bunionmaster1/form/GPMBMPRISMGetyouranswersFORM/formperma/dzCbKMpNxnylzQTflYOu-v3KxiowZurB4iFehDDeqR8';
   var PREFILL = { first: 'Name_First', last: 'Name_Last', email: 'Email', phone: 'PhoneNumber' };
   var REPLAY_URL = '';    
-  var BOOK_URL = '';      
+  var BOOK_URL = 'https://consult.drbunionmaster.com/book';      
   var q = new URLSearchParams(window.location.search);
   
   var links = root.querySelectorAll('[data-bm-link]');
