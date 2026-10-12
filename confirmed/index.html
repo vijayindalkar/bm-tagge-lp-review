@@ -124,6 +124,11 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   }
   #bm-lp .bm-cal-menu a:hover { background: var(--bm-beige-light); }
   #bm-lp .bm-cal-menu .bm-ico { width: 20px; height: 20px; color: var(--bm-gold-tan); }
+  #bm-lp .bm-confirm__actions { margin-top: 34px; display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; gap: 14px; }
+  #bm-lp .bm-confirm__actions .bm-cal { margin-top: 0; }
+  #bm-lp .bm-btn--ghost { background: transparent; color: var(--bm-ivory); box-shadow: inset 0 0 0 1px rgba(219, 189, 119, 0.55); }
+  #bm-lp .bm-btn--ghost:hover { box-shadow: inset 0 0 0 1px var(--bm-gold-beige); filter: none; }
+  #bm-lp .bm-btn--ghost .bm-ico { color: var(--bm-gold-beige); }
   #bm-lp .bm-confirm__sent { margin-top: 28px; font-size: 15px; font-weight: 500; color: var(--bm-grey); display: inline-flex; align-items: center; gap: 10px; }
   #bm-lp .bm-confirm__sent .bm-ico { width: 18px; height: 18px; color: var(--bm-gold-beige); }
   
@@ -208,6 +213,8 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     #bm-lp .bm-cal, #bm-lp .bm-cal .bm-btn { width: 100%; }
     #bm-lp .bm-cal-menu { left: 0; right: 0; transform: none; min-width: 0; }
     #bm-lp .bm-confirm__sent { font-size: 14px; }
+    #bm-lp .bm-confirm__actions { flex-direction: column; align-items: stretch; }
+    #bm-lp .bm-confirm__actions .bm-btn { width: 100%; }
     #bm-lp .bm-confirm__sent .bm-ico { display: none; }
     #bm-lp .bm-visit__intro { font-size: 17px; }
     #bm-lp .bm-visit__media { max-width: none; }
@@ -252,12 +259,15 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
       <h1 class="bm-h1">You&rsquo;re booked.</h1>
       <p class="bm-confirm__line" data-bm-when-on hidden>Your PRISM&trade; consultation with Dr.&nbsp;Tagge is confirmed for <strong class="bm-confirm__when" data-bm-when></strong>.</p>
       <p class="bm-confirm__line" data-bm-when-off>Your PRISM&trade; consultation with Dr.&nbsp;Tagge is confirmed.</p>
+      <div class="bm-confirm__actions">
       <div class="bm-cal" data-bm-when-on hidden>
         <button class="bm-btn" type="button" aria-expanded="false" aria-controls="bm-cal-menu" data-bm-cal-btn><svg class="bm-ico"><use href="#bm-i-cal"/></svg>Add to calendar</button>
         <div class="bm-cal-menu" id="bm-cal-menu" hidden>
           <a href="#" target="_blank" rel="noopener" data-bm-gcal><svg class="bm-ico"><use href="#bm-i-cal"/></svg>Google Calendar</a>
           <a href="#" data-bm-ics><svg class="bm-ico"><use href="#bm-i-download"/></svg>Apple or Outlook (.ics)</a>
         </div>
+      </div>
+      <a class="bm-btn bm-btn--ghost" href="https://consult.drbunionmaster.com/ask?booked=1" data-bm-ask>Ask Dr.&nbsp;Tagge a question<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
       </div>
       <div><p class="bm-confirm__sent"><svg class="bm-ico"><use href="#bm-i-mail"/></svg>A confirmation is on its way to your email and phone.</p></div>
     </div>
