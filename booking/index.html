@@ -629,6 +629,11 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     f.src = bookingSrc();
     f.title = 'Book your PRISM Consultation';
     f.setAttribute('allow', 'payment');
+    f.addEventListener('load', function () {
+      var u;
+      try { u = f.contentWindow.location.href; } catch (e) { return; }
+      if (u && u.indexOf(window.location.origin + '/') === 0 && u !== window.location.href) window.location.href = u;
+    });
     slot.innerHTML = '';
     var card = slot.parentNode;
     if (card) card.classList.add('is-loading');

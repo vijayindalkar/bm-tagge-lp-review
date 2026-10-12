@@ -404,7 +404,9 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   }
   
   var bookingId = param('booking_id');
-  if (bookingId || start) {
+  if ((bookingId || start) && window.self !== window.top) { setTimeout(purchase, 2500); }
+  else if (bookingId || start) { purchase(); }
+  function purchase() {
     var key = 'bm_purchase_' + (bookingId || param('booking_start_time'));
     var seen = false;
     try { seen = localStorage.getItem(key) === '1'; } catch (e) {}
