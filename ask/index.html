@@ -11,7 +11,7 @@
 </head>
 <body>
 <script>
-if (window.self !== window.top) { try { window.top.location.href = window.location.href; } catch (e) {} }
+if (window.self !== window.top) { try { if (window.top.location.hostname === 'consult.drbunionmaster.com') window.top.location.href = window.location.href; } catch (e) {} }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -336,7 +336,7 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   
   if (q.get('submitted') === '1') {
     if (window.self !== window.top) {
-      try { window.top.location.href = window.location.href; return; } catch (e) {}
+      try { if (window.top.location.hostname === 'consult.drbunionmaster.com') { window.top.location.href = window.location.href; return; } } catch (e) {}
     }
     var parts = root.querySelectorAll('[data-bm-state]');
     for (var j = 0; j < parts.length; j++) parts[j].hidden = parts[j].getAttribute('data-bm-state') !== 'thanks';

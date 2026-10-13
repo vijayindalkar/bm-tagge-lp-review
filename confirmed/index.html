@@ -11,7 +11,7 @@
 </head>
 <body>
 <script>
-if (window.self !== window.top) { try { window.top.location.href = window.location.href; } catch (e) {} }
+if (window.self !== window.top) { try { if (window.top.location.hostname === 'consult.drbunionmaster.com') window.top.location.href = window.location.href; } catch (e) {} }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
