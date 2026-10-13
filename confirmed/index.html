@@ -124,11 +124,6 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   }
   #bm-lp .bm-cal-menu a:hover { background: var(--bm-beige-light); }
   #bm-lp .bm-cal-menu .bm-ico { width: 20px; height: 20px; color: var(--bm-gold-tan); }
-  #bm-lp .bm-confirm__actions { margin-top: 34px; display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; gap: 14px; }
-  #bm-lp .bm-confirm__actions .bm-cal { margin-top: 0; }
-  #bm-lp .bm-btn--ghost { background: transparent; color: var(--bm-ivory); box-shadow: inset 0 0 0 1px rgba(219, 189, 119, 0.55); }
-  #bm-lp .bm-btn--ghost:hover { box-shadow: inset 0 0 0 1px var(--bm-gold-beige); filter: none; }
-  #bm-lp .bm-btn--ghost .bm-ico { color: var(--bm-gold-beige); }
   #bm-lp .bm-confirm__sent { margin-top: 28px; font-size: 15px; font-weight: 500; color: var(--bm-grey); display: inline-flex; align-items: center; gap: 10px; }
   #bm-lp .bm-confirm__sent .bm-ico { width: 18px; height: 18px; color: var(--bm-gold-beige); }
   
@@ -161,8 +156,6 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   #bm-lp .bm-icon-dark .bm-ico { width: 22px; height: 22px; }
   #bm-lp .bm-card p { color: var(--bm-ink-2); font-size: 16px; }
   #bm-lp .bm-card p + p { margin-top: 12px; }
-  #bm-lp .bm-next-ask { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--bm-line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px; }
-  #bm-lp .bm-next-ask p { margin: 0; font-size: 17px; font-weight: 600; color: var(--bm-ink); }
   #bm-lp .bm-ticks { display: grid; gap: 14px; }
   #bm-lp .bm-ticks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.55; color: var(--bm-ink); }
   #bm-lp .bm-ticks .bm-ico { width: 20px; height: 20px; color: var(--bm-gold-tan); margin-top: 2px; }
@@ -213,15 +206,12 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     #bm-lp .bm-cal, #bm-lp .bm-cal .bm-btn { width: 100%; }
     #bm-lp .bm-cal-menu { left: 0; right: 0; transform: none; min-width: 0; }
     #bm-lp .bm-confirm__sent { font-size: 14px; }
-    #bm-lp .bm-confirm__actions { flex-direction: column; align-items: stretch; }
-    #bm-lp .bm-confirm__actions .bm-btn { width: 100%; }
     #bm-lp .bm-confirm__sent .bm-ico { display: none; }
     #bm-lp .bm-visit__intro { font-size: 17px; }
     #bm-lp .bm-visit__media { max-width: none; }
     #bm-lp .bm-photo { aspect-ratio: 5 / 4; }
     #bm-lp .bm-photo img { object-position: 50% 14%; }
     #bm-lp .bm-card { padding: 28px 22px; }
-    #bm-lp .bm-next-ask .bm-btn { width: 100%; padding: 17px 14px; font-size: 14px; letter-spacing: 0.02em; }
     #bm-lp .bm-visit__close { font-size: 20px; }
     #bm-lp .bm-footer__line a { display: inline-block; padding: 11px 0; }
   }
@@ -238,7 +228,6 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     <symbol id="bm-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
     <symbol id="bm-i-download" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
     <symbol id="bm-i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
-    <symbol id="bm-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
     <symbol id="bm-i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
   </svg>
   
@@ -259,15 +248,12 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
       <h1 class="bm-h1">You&rsquo;re booked.</h1>
       <p class="bm-confirm__line" data-bm-when-on hidden>Your PRISM&trade; consultation with Dr.&nbsp;Tagge is confirmed for <strong class="bm-confirm__when" data-bm-when></strong>.</p>
       <p class="bm-confirm__line" data-bm-when-off>Your PRISM&trade; consultation with Dr.&nbsp;Tagge is confirmed.</p>
-      <div class="bm-confirm__actions">
       <div class="bm-cal" data-bm-when-on hidden>
         <button class="bm-btn" type="button" aria-expanded="false" aria-controls="bm-cal-menu" data-bm-cal-btn><svg class="bm-ico"><use href="#bm-i-cal"/></svg>Add to calendar</button>
         <div class="bm-cal-menu" id="bm-cal-menu" hidden>
           <a href="#" target="_blank" rel="noopener" data-bm-gcal><svg class="bm-ico"><use href="#bm-i-cal"/></svg>Google Calendar</a>
           <a href="#" data-bm-ics><svg class="bm-ico"><use href="#bm-i-download"/></svg>Apple or Outlook (.ics)</a>
         </div>
-      </div>
-      <a class="bm-btn bm-btn--ghost" href="https://consult.drbunionmaster.com/ask?booked=1" data-bm-ask>Ask Dr.&nbsp;Tagge a question<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
       </div>
       <div><p class="bm-confirm__sent"><svg class="bm-ico"><use href="#bm-i-mail"/></svg>A confirmation is on its way to your email and phone.</p></div>
     </div>
@@ -322,10 +308,6 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
       <article class="bm-card" style="grid-column: 1 / -1">
         <div class="bm-card__head"><span class="bm-icon-dark"><svg class="bm-ico"><use href="#bm-i-bell"/></svg></span><h2 class="bm-h3">What&rsquo;s next</h2></div>
         <p>You will get a text and email confirming your time, a couple of reminders before the visit, and a note from Dr.&nbsp;Tagge so you know what to expect. If anything comes up before then, reply to any message and the team will help.</p>
-        <div class="bm-next-ask">
-          <p>Have a question before your visit?</p>
-          <a class="bm-btn" href="https://consult.drbunionmaster.com/ask?booked=1" data-bm-ask>Ask Dr.&nbsp;Tagge a question<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
-        </div>
       </article>
     </div>
   </section>

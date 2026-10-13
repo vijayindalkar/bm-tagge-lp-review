@@ -242,8 +242,8 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     <div class="bm-wrap bm-ask__grid">
       <div class="bm-ask__copy">
         <p class="bm-eyebrow">ASK DR. TAGGE</p>
-        <h1 class="bm-h1" data-bm-booked-text="Get your question answered before your visit.">Get your question answered before you book.</h1>
-        <p class="bm-lead" data-bm-booked-text="Send Dr. Tagge your question before your consultation, and he or his team gets back to you personally.">Wanting a straight answer before you commit to a consultation is normal. Send Dr. Tagge your question, and he or his team gets back to you personally, with no pressure to book.</p>
+        <h1 class="bm-h1">Get your question answered before you book.</h1>
+        <p class="bm-lead">Wanting a straight answer before you commit to a consultation is normal. Send Dr. Tagge your question, and he or his team gets back to you personally, with no pressure to book.</p>
         <div class="bm-doc">
           <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/avatar-tagge.webp" alt="Dr. Michael Tagge, DPM" width="256" height="256" decoding="async">
           <p class="bm-doc__name">Dr. Michael Tagge, DPM</p>
@@ -268,7 +268,7 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     </div>
   </section>
   
-  <section class="bm-full" data-bm-state="ask" data-bm-unbooked>
+  <section class="bm-full" data-bm-state="ask">
     <div class="bm-wrap">
       <div class="bm-full__card">
         <span class="bm-icon-dark"><svg class="bm-ico"><use href="#bm-i-steth"/></svg></span>
@@ -291,7 +291,7 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
         <h1 class="bm-h1">Thanks. Your question is on its way to Dr. Tagge.</h1>
         <p class="bm-lead">You will hear back at the email or phone you gave us. While you wait, the free training walks through how modern bunion correction works.</p>
         <a class="bm-btn" href="#" data-bm-link="replay">Watch the free training<svg class="bm-ico"><use href="#bm-i-play"/></svg></a>
-        <div class="bm-thanks__book" data-bm-unbooked>
+        <div class="bm-thanks__book">
           <p>And if you would rather get a full answer on your foot in one visit, you can book your PRISM&trade; consultation any time.</p>
           <a class="bm-quiet" href="https://consult.drbunionmaster.com/book" data-bm-link="book">Book the PRISM&trade; consultation<svg class="bm-ico"><use href="#bm-i-arrow"/></svg></a>
         </div>
@@ -327,15 +327,6 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   var BOOK_URL = 'https://consult.drbunionmaster.com/book';      
   var q = new URLSearchParams(window.location.search);
   
-  var booked = q.get('booked') === '1';
-  try { if (booked) sessionStorage.setItem('bm_booked', '1'); else booked = sessionStorage.getItem('bm_booked') === '1'; } catch (e) {}
-  if (booked) {
-    var hide = root.querySelectorAll('[data-bm-unbooked]');
-    for (var b = 0; b < hide.length; b++) hide[b].hidden = true;
-    var swap = root.querySelectorAll('[data-bm-booked-text]');
-    for (var c = 0; c < swap.length; c++) swap[c].textContent = swap[c].getAttribute('data-bm-booked-text');
-  }
-  
   var links = root.querySelectorAll('[data-bm-link]');
   for (var i = 0; i < links.length; i++) {
     var url = links[i].getAttribute('data-bm-link') === 'replay' ? REPLAY_URL : BOOK_URL;
@@ -350,7 +341,7 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
     var parts = root.querySelectorAll('[data-bm-state]');
     for (var j = 0; j < parts.length; j++) parts[j].hidden = parts[j].getAttribute('data-bm-state') !== 'thanks';
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'bm_question_submitted', bm_booked: booked });
+    window.dataLayer.push({ event: 'bm_question_submitted' });
     return;
   }
   
@@ -372,7 +363,6 @@ if (window.self !== window.top) { try { window.top.location.href = window.locati
   var params = new URLSearchParams();
   q.forEach(function (v, k) { if (!/^(first|last|email|phone)$/.test(k)) params.set(k, v); });   
   for (var key in PREFILL) { if (PREFILL[key] && clean(lead[key])) params.set(PREFILL[key], clean(lead[key])); }
-  if (booked) params.set('source', 'consult-booked');   
   params.set('zf_rszfm', '1');
   var f = document.createElement('iframe');
   f.src = FORM_URL + (FORM_URL.indexOf('?') < 0 ? '?' : '&') + params.toString();
