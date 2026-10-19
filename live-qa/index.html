@@ -256,6 +256,12 @@
   #bm-wb .wb-form-card .wb-btn { width: 100%; margin-top: 28px; }
   #bm-wb .wb-form-under { margin-top: 14px; text-align: center; font-size: 16px; font-weight: 500; color: var(--bm-ink-2); }
   #bm-wb .wb-form-msg { margin-top: 14px; padding: 12px 14px; border-radius: 10px; background: var(--bm-beige-light); font-size: 15px; line-height: 1.5; color: var(--bm-ink); }
+  
+  #bm-wb .wb-form-card--zoho { max-width: 640px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
+  #bm-wb .wb-form-card--zoho::before { display: none; }
+  #bm-wb #wb-form-slot { position: relative; min-height: 560px; }
+  #bm-wb #wb-form-slot iframe { display: block; width: 100%; height: 1240px; border: 0; transition: height 0.4s ease; }
+  #bm-wb .wb-form-card--zoho + .wb-form-under { max-width: 640px; margin: 14px auto 0; }
   #bm-wb .wb-form-done { padding: 18px 0 6px; text-align: center; font-family: var(--bm-head); font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--bm-ink); }
   
   #bm-wb .wb-cal-card {
@@ -388,6 +394,7 @@
     #bm-wb .wb-price-row { gap: 12px; }
     #bm-wb .wb-price-row .wb-btn { width: auto; flex: 1 1 220px; }
     #bm-wb .wb-form-card { padding: 32px 20px 26px; }
+    #bm-wb .wb-form-card--zoho { padding: 0; margin: 0 -12px; }
     #bm-wb #wb-cal-slot iframe { height: 1150px; }
     #bm-wb .wb-cal-card { margin: 0 -8px; border-radius: 16px; }
     #bm-wb .wb-faq summary { padding: 20px 0; font-size: 17px; min-height: 48px; }
@@ -608,36 +615,10 @@
       <div class="wb-head wb-center">
         <h2 class="wb-h2">Where should we send your link?</h2>
       </div>
-      <form class="wb-form-card" id="wb-form" data-bm-land method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-        <input type="hidden" name="zf_referrer_name" value="">
-        <input type="hidden" name="zf_redirect_url" value="">
-        <input type="hidden" name="zc_gad" value="">
-        <div class="wb-field">
-          <label for="wb-first">First name</label>
-          <input id="wb-first" data-wb="first" type="text" autocomplete="given-name" required maxlength="255">
-        </div>
-        <div class="wb-field">
-          <label for="wb-email">Email</label>
-          <input id="wb-email" data-wb="email" type="email" autocomplete="email" inputmode="email" required maxlength="255">
-        </div>
-        <div class="wb-field">
-          <label for="wb-phone">Mobile</label>
-          <input id="wb-phone" data-wb="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[\d\s\(\)\+\.\-]{10,20}" title="Enter a mobile number with area code" maxlength="20">
-        </div>
-        <div class="wb-field">
-          <label for="wb-question">What&rsquo;s your biggest question about bunion surgery? <span>(optional)</span></label>
-          <textarea id="wb-question" data-wb="question" rows="4" maxlength="2000"></textarea>
-        </div>
-        <label class="wb-consent">
-          <input type="checkbox" data-wb="sms" value="true">
-          <span>Text me my link and reminders for the live Q&amp;A. Message and data rates may apply. Reply STOP to opt out.</span>
-        </label>
-        <p class="wb-consent-terms">Message frequency varies. Reply HELP for help. <a href="https://consult.drbunionmaster.com/privacy">Privacy Policy &amp; SMS Terms</a></p>
-        <input type="hidden" data-wb="smsTime" value="">
-        <button class="wb-btn" type="submit">Save My Seat</button>
-        <p class="wb-form-under">We never sell your information.</p>
-        <p class="wb-form-msg" role="status" hidden></p>
-      </form>
+      <div class="wb-form-card wb-form-card--zoho" data-bm-land>
+        <div id="wb-form-slot"><p class="wb-cal-wait">Loading the form&hellip;</p></div>
+      </div>
+      <p class="wb-form-under">We never sell your information.</p>
     </div>
   </section>
   
@@ -696,9 +677,8 @@
   var PAGE = 'webinar-registration';
   var SHOW_VIDEO = false;   
   var FORM = {
-    action: '',
-    names: { first: 'SingleLine', email: 'Email', phone: 'PhoneNumber_countrycode', question: 'MultiLine', sms: 'DecisionBox', smsTime: '' },
-    pass: ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'],
+    url: 'https://forms.zohopublic.com/bunionmaster1/form/GPMPRISMWebinarForm2/formperma/8avc5yyxPJDyYMqE-_hWWoE4igBwHXXOTzPOD5simoo',
+    perma: '8avc5yyxPJDyYMqE-_hWWoE4igBwHXXOTzPOD5simoo',
     review: true
   };
   
@@ -723,13 +703,13 @@
       if (l.first || l.email || l.phone) sessionStorage.setItem('bm_wb_lead', JSON.stringify(l));
       else l = JSON.parse(sessionStorage.getItem('bm_wb_lead') || 'null') || l;
     } catch (e) {}
+    var had = false;
+    ['first', 'last', 'email', 'phone'].forEach(function (k) { if (q.has(k)) { q.delete(k); had = true; } });
+    if (had && window.history && history.replaceState) {
+      try { history.replaceState(null, '', window.location.pathname + (q.toString() ? '?' + q.toString() : '') + window.location.hash); } catch (e) {}
+    }
     return l;
   })();
-  function withLead(url) {
-    var pairs = [];
-    ['first', 'last', 'email', 'phone'].forEach(function (k) { if (lead[k]) pairs.push(k + '=' + encodeURIComponent(lead[k])); });
-    return pairs.length ? url + (url.indexOf('?') > -1 ? '&' : '?') + pairs.join('&') : url;
-  }
   
   function barH() {
     var b = root.querySelector('.wb-topbar');
@@ -876,35 +856,45 @@
   fitLabel();
   window.addEventListener('resize', fitLabel);
   
-  var form = document.getElementById('wb-form');
-  var msg = form.querySelector('.wb-form-msg');
-  var els = form.querySelectorAll('[data-wb]');
-  for (var n = 0; n < els.length; n++) {
-    var key = els[n].getAttribute('data-wb');
-    if (FORM.names[key]) els[n].name = FORM.names[key];
+  var slot = document.getElementById('wb-form-slot');
+  var formLoaded = false;
+  function loadForm() {
+    if (formLoaded || !slot) return;
+    formLoaded = true;
+    var params = new URLSearchParams(window.location.search);
+    params.set('zf_rszfm', '1');
+    if (FORM.review && !params.has('source')) params.set('source', 'review-link');
+    var ref = window.location.href.split('#')[0];
+    if (!params.has('referrername')) params.set('referrername', ref.length > 1800 ? ref.split('?')[0] : ref);
+    var f = document.createElement('iframe');
+    f.src = FORM.url + '?' + params.toString();
+    f.title = 'Register for the live Q&A';
+    f.setAttribute('aria-label', 'Register for the live Q&A');
+    slot.innerHTML = '';
+    slot.appendChild(f);
+    track({ event: 'bm_form_view' });
   }
-  var params = new URLSearchParams(window.location.search);
-  function hidden(name, value) {
-    var h = document.createElement('input');
-    h.type = 'hidden'; h.name = name; h.value = value;
-    form.appendChild(h);
-  }
-  for (var p = 0; p < FORM.pass.length; p++) if (params.get(FORM.pass[p])) hidden(FORM.pass[p], params.get(FORM.pass[p]));
-  if (FORM.review && !params.get('source')) hidden('source', 'review-link');
-  if (FORM.action) form.action = FORM.action;
-  form.addEventListener('submit', function (ev) {
-    var sms = form.querySelector('[data-wb="sms"]');
-    form.querySelector('[data-wb="smsTime"]').value = sms.checked ? new Date().toISOString() : '';
-    if (!FORM.action) {
-      ev.preventDefault();
-      msg.textContent = 'This form isn’t connected yet, so nothing was sent.';
-      msg.hidden = false;
-      return;
+  window.addEventListener('message', function (e) {
+    var d = e.data;
+    if (typeof d !== 'string' || d.indexOf(FORM.perma) !== 0) return;
+    var parts = d.split('|');
+    var frame = slot && slot.querySelector('iframe');
+    var h = parseInt(parts[1], 10);
+    if (!frame || !h) return;
+    frame.style.height = (h + 15) + 'px';
+    if (parts.length === 3) {
+      var top = frame.getBoundingClientRect().top + window.pageYOffset - barH() - 16;
+      window.scrollTo({ top: top, behavior: 'smooth' });
     }
-    track({ event: 'bm_webinar_register_submit', bm_sms: sms.checked ? 'yes' : 'no' });
-    var btn = form.querySelector('button[type="submit"]');
-    setTimeout(function () { btn.disabled = true; }, 0);
-  });
+  }, false);
+  for (var fc = 0; fc < ctas.length; fc++) ctas[fc].addEventListener('click', loadForm);
+  if ('IntersectionObserver' in window) {
+    var formIo = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { loadForm(); formIo.disconnect(); } }, { rootMargin: '1400px 0px' });
+    formIo.observe(slot);
+    window.addEventListener('load', function () { setTimeout(loadForm, 4000); });
+  } else {
+    loadForm();
+  }
 })();
 </script>
 </body>
