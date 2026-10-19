@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://drbunionmaster.com/wp-content/uploads/2026/10/confirm-tagge-smiling.avif" type="image/avif">
+<link rel="preload" as="image" href="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.avif" type="image/avif" fetchpriority="high">
 <style>
   html, body { overflow-x: clip; }
   .zpsection:has(#bm-wb), .zpsection:has(#bm-wb) *:has(#bm-wb) { padding-top: 0 !important; padding-bottom: 0 !important; margin-top: 0 !important; margin-bottom: 0 !important; }
@@ -403,6 +403,13 @@
     #bm-wb .wb-footer { padding: 44px 0 36px; }
     #bm-wb .wb-footer__logo { width: 180px; }
   }
+  
+  #bm-wb .wb-hero .wb-photo--xray { aspect-ratio: 1100 / 1119; background: #0b0d11; }
+  #bm-wb .wb-hero .wb-photo--xray img { object-position: 50% 50%; }
+  @media (max-width: 767px) {
+    #bm-wb .wb-hero .wb-photo--xray { aspect-ratio: 4 / 3; }
+    #bm-wb .wb-hero .wb-photo--xray img { object-position: 50% 0%; }
+  }
 </style>
 <div id="bm-wb">
   
@@ -442,10 +449,10 @@
           </div>
         </div>
         <div class="wb-hero__media">
-          <figure class="wb-photo">
+          <figure class="wb-photo wb-photo--xray">
             <picture>
-              <source srcset="https://drbunionmaster.com/wp-content/uploads/2026/10/confirm-tagge-smiling.avif" type="image/avif">
-              <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/confirm-tagge-smiling.webp" alt="Dr. Michael Tagge, DPM, in scrubs" width="820" height="1230" decoding="async">
+              <source srcset="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.avif" type="image/avif">
+              <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.webp" alt="X-ray of a foot with the bunion at the big toe joint highlighted" width="1100" height="1119" fetchpriority="high" decoding="async">
             </picture>
           </figure>
         </div>
