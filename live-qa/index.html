@@ -416,6 +416,26 @@
   
   #bm-wb .wb-hero .wb-photo--xray { aspect-ratio: 1100 / 1119; background: #0b0d11; }
   #bm-wb .wb-hero .wb-photo--xray img { object-position: 50% 50%; }
+  #bm-wb .wb-topic-cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; }
+  #bm-wb .wb-topic-cards li {
+    grid-column: span 2; position: relative; padding: 34px 30px 32px; border-radius: var(--bm-radius);
+    background: var(--bm-ivory); border: 1px solid var(--bm-line); font-size: 17px; line-height: 1.6; color: var(--bm-ink-2);
+  }
+  #bm-wb .wb-topic-cards li:nth-child(n+4) { grid-column: span 3; }
+  #bm-wb .wb-topic-cards li::before { content: ""; position: absolute; left: 30px; top: 0; width: 40px; height: 3px; border-radius: 0 0 3px 3px; background: var(--bm-grad-hl); }
+  #bm-wb .wb-topic-cards strong { display: block; margin-bottom: 10px; font-size: 20px; line-height: 1.35; font-weight: 600; color: var(--bm-ink); }
+  @media (max-width: 1080px) {
+    #bm-wb .wb-topic-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #bm-wb .wb-topic-cards li, #bm-wb .wb-topic-cards li:nth-child(n+4) { grid-column: auto; }
+    #bm-wb .wb-topic-cards li:nth-child(5) { grid-column: span 2; }
+  }
+  @media (max-width: 767px) {
+    #bm-wb .wb-topic-cards { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    #bm-wb .wb-topic-cards li:nth-child(5) { grid-column: auto; }
+    #bm-wb .wb-topic-cards li { padding: 26px 22px 24px; font-size: 16px; }
+    #bm-wb .wb-topic-cards li::before { left: 22px; }
+    #bm-wb .wb-topic-cards strong { font-size: 18px; margin-bottom: 8px; }
+  }
   #bm-wb .wb-problem__grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 72px; align-items: center; }
   #bm-wb .wb-problem__copy { max-width: 640px; }
   #bm-wb .wb-photo--light { aspect-ratio: 1122 / 1402; background: var(--bm-beige-light); box-shadow: 0 30px 60px -40px rgba(23, 23, 23, 0.45); }
@@ -508,11 +528,11 @@
   </section>
   
   <section class="wb-section">
-    <div class="wb-wrap wb-wrap--mid">
+    <div class="wb-wrap">
       <div class="wb-head">
         <h2 class="wb-h2">What Dr.&nbsp;Tagge covers on October 27</h2>
       </div>
-      <ul class="wb-topics">
+      <ul class="wb-topic-cards">
         <li><strong>Why the recovery scares so many people.</strong> Where the stories come from, and whether the surgery you&rsquo;re afraid of is the surgery you&rsquo;d actually need.</li>
         <li><strong>How he plans the surgery and the recovery together.</strong> Why his planning doesn&rsquo;t stop when the operation ends, and the system he built for it, called PRISM&trade;.</li>
         <li><strong>What patients say.</strong> People who put it off for years, in their own words.</li>
