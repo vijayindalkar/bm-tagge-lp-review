@@ -58,8 +58,8 @@
   #bm-wb [hidden] { display: none !important; }
   #bm-wb .wb-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   #bm-wb .wb-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-  #bm-wb .wb-wrap--text { max-width: 760px; }
-  #bm-wb .wb-wrap--mid { max-width: 924px; }
+  #bm-wb .wb-wrap--text > * { max-width: 760px; }
+  #bm-wb .wb-wrap--mid > * { max-width: 860px; }
   #bm-wb .wb-section { padding: 104px 0; }
   #bm-wb .wb-ivory { background: var(--bm-ivory); }
   #bm-wb .wb-beige { background: var(--bm-beige-light); }
@@ -265,7 +265,7 @@
   #bm-wb .wb-form-card--zoho { max-width: 640px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
   #bm-wb .wb-form-card--zoho::before { display: none; }
   #bm-wb #wb-form-slot { position: relative; min-height: 560px; }
-  #bm-wb #wb-form-slot iframe { display: block; width: 100%; height: 1240px; border: 0; transition: height 0.4s ease; }
+  #bm-wb #wb-form-slot iframe { display: block; width: 100%; height: 1100px; border: 0; transition: height 0.4s ease; }
   #bm-wb .wb-form-card--zoho + .wb-form-under { max-width: 640px; margin: 14px auto 0; }
   #bm-wb .wb-form-done { padding: 18px 0 6px; text-align: center; font-family: var(--bm-head); font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--bm-ink); }
   
@@ -337,6 +337,9 @@
     #bm-wb .wb-wrap { padding: 0 20px; }
     #bm-wb .wb-section { padding: 72px 0; }
     #bm-wb .wb-head { margin-bottom: 36px; }
+    #bm-wb .wb-head.wb-center:has(.wb-lead) { text-align: left; }
+    #bm-wb .wb-head.wb-center:has(.wb-lead) .wb-h2::before { margin-left: 0; }
+    #bm-wb .wb-cal-card + .wb-note { text-align: left; }
     #bm-wb .wb-topbar { display: none; }
     #bm-wb .wb-bottombar {
       display: block; position: sticky; bottom: 0; z-index: 60; background: rgba(23, 23, 23, 0.97);
@@ -352,7 +355,7 @@
     #bm-wb .wb-hero { padding: 22px 0 64px; }
     #bm-wb .wb-hero--logo { padding-top: 22px; }
     #bm-wb .wb-hero__logo { display: block; width: 150px; margin-bottom: 26px; }
-    #bm-wb .wb-eyebrow { font-size: 13px; gap: 10px; margin-bottom: 14px; }
+    #bm-wb .wb-eyebrow { font-size: 14px; gap: 10px; margin-bottom: 14px; }
     #bm-wb .wb-eyebrow::before { width: 20px; }
     #bm-wb .wb-h1 { font-size: 34px; line-height: 1.08; }
     #bm-wb .wb-hero .wb-h1, #bm-wb .wb-confirm .wb-h1 { margin-bottom: 16px; }
@@ -458,7 +461,7 @@
     <div class="wb-wrap">
       <img class="wb-footer__logo" src="https://drbunionmaster.com/wp-content/uploads/2026/10/logo-bunion-master-prism-gold-dark.webp" alt="Bunion Master, Advanced Foot Surgery, PRISM&trade;" width="526" height="145" loading="lazy" decoding="async">
       <p class="wb-footer__info">&copy; 2026 Bunion Master &middot; Dr.&nbsp;Michael Tagge, DPM &middot; MJT Podiatry S.C. &middot; 2333 N. Harlem Avenue, Chicago, IL 60707 &middot; By appointment only &middot; <a href="https://consult.drbunionmaster.com/privacy">Privacy Policy</a></p>
-      <p class="wb-footer__legal">This page isn&rsquo;t medical advice for any one person. Candidacy is decided at a consultation. Surgery carries risks. Individual results and recovery vary. Bunion Master is a private-pay practice.</p>
+      <p class="wb-footer__legal">This page isn&rsquo;t medical advice for any one person. Candidacy is decided at a consultation. Surgery carries risks. Individual results and recovery vary. Bunion Master is a private&#8209;pay practice.</p>
     </div>
   </footer>
 </div>
