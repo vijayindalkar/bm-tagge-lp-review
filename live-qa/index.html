@@ -413,6 +413,13 @@
   
   #bm-wb .wb-hero .wb-photo--xray { aspect-ratio: 1100 / 1119; background: #0b0d11; }
   #bm-wb .wb-hero .wb-photo--xray img { object-position: 50% 50%; }
+  #bm-wb .wb-problem__grid { max-width: 1104px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 72px; align-items: center; }
+  #bm-wb .wb-problem__copy { max-width: 640px; }
+  #bm-wb .wb-photo--light { aspect-ratio: 1122 / 1402; background: var(--bm-beige-light); box-shadow: 0 30px 60px -40px rgba(23, 23, 23, 0.45); }
+  @media (max-width: 900px) {
+    #bm-wb .wb-problem__grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    #bm-wb .wb-problem__media { max-width: 400px; }
+  }
   @media (max-width: 767px) {
     #bm-wb .wb-hero .wb-photo--xray { aspect-ratio: 4 / 3; }
     #bm-wb .wb-hero .wb-photo--xray img { object-position: 50% 0%; }
@@ -479,14 +486,21 @@
   </section>
   
   <section class="wb-section wb-ivory wb-problem">
-    <div class="wb-wrap wb-wrap--text">
-      <h2 class="wb-h2">It usually starts with the shoes.</h2>
-      <div class="wb-body">
-        <p>You stop buying the ones you like and start buying the ones your foot will tolerate. The walks get shorter, the round of golf gets cut to nine, and somewhere along the way everyone starts waiting for you.</p>
-        <p>You&rsquo;ve probably known surgery might be the answer. Then you heard the stories: the scars, the screws, weeks off your feet, someone whose recovery dragged on for months. So you kept putting it off.</p>
-        <p>You want your life back. The surgery you&rsquo;ve heard about is what&rsquo;s stopping you.</p>
+    <div class="wb-wrap wb-problem__grid">
+      <div class="wb-problem__copy">
+        <h2 class="wb-h2">It usually starts with the shoes.</h2>
+        <div class="wb-body">
+          <p>You stop buying the ones you like and start buying the ones your foot will tolerate. The walks get shorter, the round of golf gets cut to nine, and somewhere along the way everyone starts waiting for you.</p>
+          <p>You&rsquo;ve probably known surgery might be the answer. Then you heard the stories: the scars, the screws, weeks off your feet, someone whose recovery dragged on for months. So you kept putting it off.</p>
+          <p>You want your life back. The surgery you&rsquo;ve heard about is what&rsquo;s stopping you.</p>
+        </div>
+        <p class="wb-lead-in">This live Q&amp;A is your chance to hear the other side of those stories, and what it would take to get your life back.</p>
       </div>
-      <p class="wb-lead-in">This live Q&amp;A is your chance to hear the other side of those stories, and what it would take to get your life back.</p>
+      <div class="wb-problem__media">
+        <figure class="wb-photo wb-photo--light">
+          <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/e06fac6f-0e73-492e-adec-77639a09b6e6.png" alt="The soles of two feet, one with a bunion at the big toe joint" width="1122" height="1402" loading="lazy" decoding="async">
+        </figure>
+      </div>
     </div>
   </section>
   
