@@ -145,6 +145,13 @@
   #bm-wb .wb-cal .wb-btn { padding: 15px 24px; font-size: 15px; }
   #bm-wb .wb-cal + .wb-note { margin-top: 16px; font-size: 16px; }
   
+  #bm-wb .wb-joinnote {
+    margin-top: 32px; display: inline-flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(219, 189, 119, 0.35);
+    font-size: 16px; line-height: 1.45; font-weight: 500; color: var(--bm-ivory);
+  }
+  #bm-wb .wb-joinnote svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--bm-gold-beige); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  
   #bm-wb .wb-cred { background: var(--bm-beige-light); border-bottom: 1px solid var(--bm-line); }
   #bm-wb .wb-cred ul { display: grid; grid-template-columns: auto auto auto auto; justify-content: space-between; }
   #bm-wb .wb-cred li { padding: 24px 22px; font-size: 15px; line-height: 1.45; font-weight: 600; color: var(--bm-ink); text-align: center; display: flex; align-items: center; justify-content: center; }
@@ -259,6 +266,7 @@
   #bm-wb .wb-form-card--zoho { max-width: 640px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
   #bm-wb .wb-form-card--zoho::before { display: none; }
   #bm-wb #wb-form-slot { position: relative; min-height: 560px; }
+  #bm-wb #wb-form-slot:has(iframe) { min-height: 0; }
   #bm-wb #wb-form-slot iframe { display: block; width: 100%; height: 1100px; border: 0; transition: height 0.4s ease; }
   #bm-wb .wb-form-card--zoho + .wb-form-under { max-width: 640px; margin: 14px auto 0; }
   #bm-wb .wb-form-done { padding: 18px 0 6px; text-align: center; font-family: var(--bm-head); font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--bm-ink); }
@@ -429,12 +437,7 @@
             <li>About an hour</li>
             <li>Online, from home</li>
           </ul>
-          <div class="wb-cal">
-            <a class="wb-btn" href="#" data-bm-gcal data-bm-calbtn="google" target="_blank" rel="noopener">Google Calendar</a>
-            <a class="wb-btn" href="#" data-bm-ics data-bm-calbtn="apple">Apple Calendar</a>
-            <a class="wb-btn" href="#" data-bm-ocal data-bm-calbtn="outlook" target="_blank" rel="noopener">Outlook</a>
-          </div>
-          <p class="wb-note">Your link to join is on its way by email and text.</p>
+          <p class="wb-joinnote"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Your link to join is on its way by email and text.</span></p>
           <div class="wb-host">
             <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/avatar-tagge.webp" alt="" width="256" height="256" decoding="async">
             <div>
@@ -461,24 +464,10 @@
         <h2 class="wb-h2">Got a question for Dr.&nbsp;Tagge?</h2>
         <p class="wb-lead">If you didn&rsquo;t send one when you registered, or you&rsquo;ve thought of another, send it here. He answers the earliest questions first.</p>
       </div>
-      <form class="wb-form-card" id="wb-qform" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" target="wb-q-sink">
-        <input type="hidden" name="zf_referrer_name" value="">
-        <input type="hidden" name="zf_redirect_url" value="">
-        <input type="hidden" name="zc_gad" value="">
-        <div class="wb-q-fields">
-          <div class="wb-field">
-            <label class="wb-sr" for="wb-q">Type your question</label>
-            <textarea id="wb-q" data-wq="question" rows="5" maxlength="2000" placeholder="Type your question" required></textarea>
-          </div>
-          <input type="hidden" data-wq="email" value="">
-          <input type="hidden" data-wq="first" value="">
-          <button class="wb-btn" type="submit">Send My Question</button>
-          <p class="wb-form-under">He reads questions aloud without names.</p>
-          <p class="wb-form-msg" role="status" hidden></p>
-        </div>
-        <p class="wb-form-done" role="status" hidden>Got it. Your question is in.</p>
-      </form>
-      <iframe name="wb-q-sink" title="" aria-hidden="true" tabindex="-1" style="display:none"></iframe>
+      <div class="wb-form-card wb-form-card--zoho">
+        <div id="wb-form-slot"><p class="wb-cal-wait">Loading the form&hellip;</p></div>
+      </div>
+      <p class="wb-form-under">He reads questions aloud without names.</p>
     </div>
   </section>
   
@@ -535,11 +524,11 @@
   
   var PAGE = 'webinar-registered';
   var SHOW_VIDEO = false;          
-  var JOIN_URL = '';               
   var CONSULT_URL = '/bm-tagge-lp-review/live-qa/next-step/';   
-  var QFORM = {
-    action: '',
-    names: { question: 'MultiLine', email: 'Email', first: 'SingleLine' },
+  var ASK = {
+    url: 'https://forms.zohopublic.com/bunionmaster1/form/GPMBMWebinarASKQuestion/formperma/2AE5w_PoRCM5bGnqQO6Wtg4v_Kp9_gCtER5--g00giE',
+    perma: '2AE5w_PoRCM5bGnqQO6Wtg4v_Kp9_gCtER5--g00giE',
+    prefill: { first: 'Name_First', last: 'Name_Last', email: 'Email', phone: 'PhoneNumber' },
     review: true
   };
   
@@ -621,6 +610,45 @@
       this.parentNode.replaceChild(box, this);
       track({ event: 'bm_video_play', bm_video: this.getAttribute('data-bm-video') });
     });
+  }
+  
+  function zohoForm(o) {
+    var loaded = false;
+    function load() {
+      if (loaded || !o.slot) return;
+      loaded = true;
+      var params = new URLSearchParams(window.location.search);
+      params.set('zf_rszfm', '1');
+      for (var k in (o.prefill || {})) if (o.prefill[k]) params.set(k, o.prefill[k]);
+      if (o.review && !params.has('source')) params.set('source', 'review-link');
+      var ref = window.location.href.split('#')[0];
+      if (!params.has('referrername')) params.set('referrername', ref.length > 1800 ? ref.split('?')[0] : ref);
+      var f = document.createElement('iframe');
+      f.src = o.url + '?' + params.toString();
+      f.title = o.title;
+      f.setAttribute('aria-label', o.title);
+      o.slot.innerHTML = '';
+      o.slot.appendChild(f);
+      if (o.onLoad) o.onLoad();
+    }
+    window.addEventListener('message', function (e) {
+      var d = e.data;
+      if (typeof d !== 'string' || d.indexOf(o.perma) !== 0) return;
+      var parts = d.split('|');
+      var frame = o.slot && o.slot.querySelector('iframe');
+      var h = parseInt(parts[1], 10);
+      if (!frame || !h) return;
+      frame.style.height = (h + 15) + 'px';
+      if (parts.length === 3) window.scrollTo({ top: frame.getBoundingClientRect().top + window.pageYOffset - barH() - 16, behavior: 'smooth' });
+    }, false);
+    if ('IntersectionObserver' in window && o.slot) {
+      var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '1400px 0px' });
+      io.observe(o.slot);
+      window.addEventListener('load', function () { setTimeout(load, 4000); });
+    } else {
+      load();
+    }
+    return load;
   }
   
   function pad(n) { return (n < 10 ? '0' : '') + n; }
@@ -709,48 +737,14 @@
     }
   } catch (e) { fire('bm_webinar_registered', 'CompleteRegistration', { content_name: 'Live Q&A 2026-10-27' }); }
   
-  calendar({
-    title: 'Live Q&A with Dr. Michael Tagge',
-    start: new Date(Date.UTC(2026, 9, 28, 0, 0)),
-    minutes: 60,
-    location: JOIN_URL || 'Online',
-    details: 'Live Q&A with foot surgeon Dr. Michael Tagge (Bunion Master). Live only, no replay.\n'
-      + (JOIN_URL ? 'Join here: ' + JOIN_URL : 'Your link to join is in your registration email.'),
-    uid: 'bm-live-qa-20261027',
-    file: 'bunion-master-live-qa.ics',
-    remind: 60
-  });
-  
   var consult = root.querySelector('[data-bm-consult]');
   if (consult) consult.href = CONSULT_URL;
   
-  var qf = document.getElementById('wb-qform');
-  var els = qf.querySelectorAll('[data-wq]');
-  for (var n = 0; n < els.length; n++) {
-    var key = els[n].getAttribute('data-wq');
-    if (QFORM.names[key]) els[n].name = QFORM.names[key];
-    if (key === 'email') els[n].value = lead.email;
-    if (key === 'first') els[n].value = lead.first;
-  }
-  if (QFORM.review) {
-    var rv = document.createElement('input');
-    rv.type = 'hidden'; rv.name = 'source'; rv.value = 'review-link';
-    qf.appendChild(rv);
-  }
-  if (QFORM.action) qf.action = QFORM.action;
-  qf.addEventListener('submit', function (ev) {
-    var msg = qf.querySelector('.wb-form-msg');
-    if (!QFORM.action) {
-      ev.preventDefault();
-      msg.textContent = 'This form isn’t connected yet, so nothing was sent.';
-      msg.hidden = false;
-      return;
-    }
-    track({ event: 'bm_question_submit' });
-    setTimeout(function () {
-      qf.querySelector('.wb-q-fields').hidden = true;
-      qf.querySelector('.wb-form-done').hidden = false;
-    }, 0);
+  var pre = {};
+  for (var pk in ASK.prefill) if (lead[pk]) pre[ASK.prefill[pk]] = lead[pk];
+  zohoForm({
+    slot: document.getElementById('wb-form-slot'), url: ASK.url, perma: ASK.perma, title: 'Send your question for Dr. Tagge',
+    prefill: pre, review: ASK.review, onLoad: function () { track({ event: 'bm_question_form_view' }); }
   });
 })();
 </script>

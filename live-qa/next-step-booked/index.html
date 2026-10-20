@@ -151,6 +151,13 @@
   #bm-wb .wb-cal .wb-btn { padding: 15px 24px; font-size: 15px; }
   #bm-wb .wb-cal + .wb-note { margin-top: 16px; font-size: 16px; }
   
+  #bm-wb .wb-joinnote {
+    margin-top: 32px; display: inline-flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(219, 189, 119, 0.35);
+    font-size: 16px; line-height: 1.45; font-weight: 500; color: var(--bm-ivory);
+  }
+  #bm-wb .wb-joinnote svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--bm-gold-beige); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  
   #bm-wb .wb-cred { background: var(--bm-beige-light); border-bottom: 1px solid var(--bm-line); }
   #bm-wb .wb-cred ul { display: grid; grid-template-columns: auto auto auto auto; justify-content: space-between; }
   #bm-wb .wb-cred li { padding: 24px 22px; font-size: 15px; line-height: 1.45; font-weight: 600; color: var(--bm-ink); text-align: center; display: flex; align-items: center; justify-content: center; }
@@ -265,6 +272,7 @@
   #bm-wb .wb-form-card--zoho { max-width: 640px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
   #bm-wb .wb-form-card--zoho::before { display: none; }
   #bm-wb #wb-form-slot { position: relative; min-height: 560px; }
+  #bm-wb #wb-form-slot:has(iframe) { min-height: 0; }
   #bm-wb #wb-form-slot iframe { display: block; width: 100%; height: 1100px; border: 0; transition: height 0.4s ease; }
   #bm-wb .wb-form-card--zoho + .wb-form-under { max-width: 640px; margin: 14px auto 0; }
   #bm-wb .wb-form-done { padding: 18px 0 6px; text-align: center; font-family: var(--bm-head); font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--bm-ink); }
@@ -553,6 +561,45 @@
       this.parentNode.replaceChild(box, this);
       track({ event: 'bm_video_play', bm_video: this.getAttribute('data-bm-video') });
     });
+  }
+  
+  function zohoForm(o) {
+    var loaded = false;
+    function load() {
+      if (loaded || !o.slot) return;
+      loaded = true;
+      var params = new URLSearchParams(window.location.search);
+      params.set('zf_rszfm', '1');
+      for (var k in (o.prefill || {})) if (o.prefill[k]) params.set(k, o.prefill[k]);
+      if (o.review && !params.has('source')) params.set('source', 'review-link');
+      var ref = window.location.href.split('#')[0];
+      if (!params.has('referrername')) params.set('referrername', ref.length > 1800 ? ref.split('?')[0] : ref);
+      var f = document.createElement('iframe');
+      f.src = o.url + '?' + params.toString();
+      f.title = o.title;
+      f.setAttribute('aria-label', o.title);
+      o.slot.innerHTML = '';
+      o.slot.appendChild(f);
+      if (o.onLoad) o.onLoad();
+    }
+    window.addEventListener('message', function (e) {
+      var d = e.data;
+      if (typeof d !== 'string' || d.indexOf(o.perma) !== 0) return;
+      var parts = d.split('|');
+      var frame = o.slot && o.slot.querySelector('iframe');
+      var h = parseInt(parts[1], 10);
+      if (!frame || !h) return;
+      frame.style.height = (h + 15) + 'px';
+      if (parts.length === 3) window.scrollTo({ top: frame.getBoundingClientRect().top + window.pageYOffset - barH() - 16, behavior: 'smooth' });
+    }, false);
+    if ('IntersectionObserver' in window && o.slot) {
+      var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '1400px 0px' });
+      io.observe(o.slot);
+      window.addEventListener('load', function () { setTimeout(load, 4000); });
+    } else {
+      load();
+    }
+    return load;
   }
   
   function pad(n) { return (n < 10 ? '0' : '') + n; }
