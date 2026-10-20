@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://drbunionmaster.com/wp-content/uploads/2026/10/booking-tagge-exam-room.avif" type="image/avif">
 <style>
   html, body { overflow-x: clip; }
   .zpsection:has(#bm-wb), .zpsection:has(#bm-wb) *:has(#bm-wb) { padding-top: 0 !important; padding-bottom: 0 !important; margin-top: 0 !important; margin-bottom: 0 !important; }
@@ -412,33 +413,52 @@
     #bm-wb .wb-footer { padding: 44px 0 36px; }
     #bm-wb .wb-footer__logo { width: 180px; }
   }
-  
-  #bm-wb .wb-short { padding: 72px 0 64px; background: radial-gradient(900px 520px at 85% 0%, rgba(219, 189, 119, 0.12), transparent 62%), var(--bm-charcoal); }
-  #bm-wb .wb-short .wb-h1 { max-width: 900px; margin-bottom: 22px; }
-  #bm-wb .wb-short .wb-cta { margin-top: 32px; }
-  #bm-wb .wb-book--top { padding-top: 56px; }
-  @media (max-width: 767px) {
-    #bm-wb .wb-short { padding: 32px 0 28px; }
-    #bm-wb .wb-short .wb-cta { margin-top: 22px; }
-    #bm-wb .wb-book--top { padding-top: 28px; }
-    #bm-wb .wb-book--top .wb-head { margin-bottom: 18px; }
-    #bm-wb .wb-book--top .wb-h2 { font-size: 26px; }
-    #bm-wb .wb-book--top .wb-h2::before { display: none; }
-  }
 </style>
 <div id="bm-wb">
   
-  <section class="wb-short wb-dark">
+  <section class="wb-hero wb-dark">
     <div class="wb-wrap">
-      <h1 class="wb-h1">Your Next Step: Find Out What Surgery Would Look Like for <span class="wb-gold">Your Foot</span></h1>
-      <p class="wb-sub">Spend about 90 minutes in person with Dr.&nbsp;Michael Tagge in Chicago, and leave with his recommendation.</p>
-      <div class="wb-cta">
-        <a class="wb-btn" href="#book" data-bm-cta="top">Book My PRISM Consultation &middot; $395<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+      <img class="wb-logo-top" src="https://drbunionmaster.com/wp-content/uploads/2026/10/logo-bunion-master-gold-dark.webp" alt="Bunion Master, Advanced Foot Surgery" width="526" height="93">
+      <div class="wb-hero__grid">
+        <div class="wb-hero__copy">
+          <h1 class="wb-h1">Your Next Step: Find Out What Surgery Would Look Like for <span class="wb-gold">Your Foot</span></h1>
+          <p class="wb-sub">Spend about 90 minutes in person with Dr.&nbsp;Michael Tagge in Chicago, and leave with his recommendation.</p>
+          <div class="wb-cta">
+            <a class="wb-btn" href="#book" data-bm-cta="top">Book My PRISM Consultation &middot; $395<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+            <p class="wb-note">If you go ahead with surgery, your $395 is credited toward it.</p>
+          </div>
+          <div class="wb-host">
+            <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/avatar-tagge.webp" alt="" width="256" height="256" decoding="async">
+            <div>
+              <p class="wb-host__name">Dr.&nbsp;Michael Tagge, DPM</p>
+              <p class="wb-host__role">Foot surgeon, Chicago</p>
+            </div>
+          </div>
+        </div>
+        <div class="wb-hero__media">
+          <figure class="wb-photo">
+            <picture>
+              <source srcset="https://drbunionmaster.com/wp-content/uploads/2026/10/booking-tagge-exam-room.avif" type="image/avif">
+              <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/booking-tagge-exam-room.webp" alt="Dr. Michael Tagge in an exam room" width="900" height="1350" fetchpriority="high" decoding="async">
+            </picture>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
   
-  <section class="wb-section wb-ivory wb-book wb-book--top" id="book">
+  <section class="wb-cred" aria-label="Credentials">
+    <div class="wb-wrap">
+      <ul>
+        <li>ABPM Board-Certified Podiatric Physician</li>
+        <li>Certified in Functional &amp; Regenerative Medicine</li>
+        <li>ABFAS Board Eligible</li>
+        <li>Exclusively Focused on Minimally Invasive Forefoot Reconstruction</li>
+      </ul>
+    </div>
+  </section>
+  
+  <section class="wb-section wb-ivory wb-book" id="book">
     <div class="wb-wrap">
       <div class="wb-head wb-center">
         <h2 class="wb-h2">Book your PRISM Consultation</h2>
@@ -453,7 +473,7 @@
   <section class="wb-section">
     <div class="wb-wrap">
       <div class="wb-panel">
-        <h2 class="wb-h2">When you start decides which season you get back</h2>
+        <h2 class="wb-h2">When you start determines which season you get back.</h2>
         <p class="wb-lead">Your plan begins before surgery day. So the trip or golf season you&rsquo;re aiming for depends on when you come in.</p>
       </div>
     </div>
