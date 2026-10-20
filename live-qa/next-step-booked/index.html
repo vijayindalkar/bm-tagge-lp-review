@@ -12,7 +12,7 @@
 <body>
 <script>
 (function () {
-  var LIVE_HOSTS = ['webinar.drbunionmaster.com'];
+  var LIVE_HOSTS = ['www.chicagobunionrelief.com', 'chicagobunionrelief.com'];
   if (window.self !== window.top) { try { if (LIVE_HOSTS.indexOf(window.top.location.hostname) > -1) window.top.location.href = window.location.href; } catch (e) {} }
 })();
 </script>
@@ -467,9 +467,10 @@
   var root = document.getElementById('bm-wb');
   if (!root) return;
   
-  var PAGE = 'webinar-consultation-booked-after';
-  var STAGE = 'after';
+  var PAGE = 'webinar-consultation-booked';
+  var LIVE_START = Date.UTC(2026, 9, 28, 0, 0);         
   var HEAD_BACK_UNTIL = Date.UTC(2026, 9, 28, 11, 0);   
+  var STAGE = Date.now() < LIVE_START ? 'before' : 'after';
   
   function track(o) { o.bm_page = PAGE; window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); }
   function fire(dlEvent, fbEvent, data, id) {
@@ -630,7 +631,7 @@
     return { date: date, time: time.replace(' ', ' ') };
   }
   
-  if (Date.now() >= HEAD_BACK_UNTIL) root.querySelector('[data-bm-backline]').hidden = true;
+  if (Date.now() < LIVE_START || Date.now() >= HEAD_BACK_UNTIL) root.querySelector('[data-bm-backline]').hidden = true;
   
   var b = bookingFromUrl();
   if (b.start) {
