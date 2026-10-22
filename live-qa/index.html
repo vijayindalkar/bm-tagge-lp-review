@@ -897,6 +897,17 @@
       calSlot.appendChild(f);
       fire('bm_checkout_view', 'InitiateCheckout', { value: 395, currency: 'USD' });
     };
+    var FROM = ['https://www.chicagobunionrelief.com', 'https://chicagobunionrelief.com', 'https://consult.drbunionmaster.com'];
+    var booked = false;
+    window.addEventListener('message', function (e) {
+      var d = e.data;
+      if (booked || FROM.indexOf(e.origin) < 0 || !d || d.bm !== 'booked' || typeof d.url !== 'string') return;
+      var u;
+      try { u = new URL(d.url); } catch (x) { return; }
+      if (FROM.indexOf(u.origin) < 0) return;
+      booked = true;
+      window.location.href = typeof BOOKED_URL !== 'undefined' && BOOKED_URL ? BOOKED_URL.split('?')[0] + u.search : u.href;
+    });
     if ('IntersectionObserver' in window) {
       var calIo = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { loadCal(); calIo.disconnect(); } }, { rootMargin: '1400px 0px' });
       calIo.observe(calSlot);

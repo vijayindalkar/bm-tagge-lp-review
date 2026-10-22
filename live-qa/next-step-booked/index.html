@@ -12,8 +12,11 @@
 <body>
 <script>
 (function () {
+  if (window.self === window.top) return;
   var LIVE_HOSTS = ['www.chicagobunionrelief.com', 'chicagobunionrelief.com'];
-  if (window.self !== window.top) { try { if (LIVE_HOSTS.indexOf(window.top.location.hostname) > -1) window.top.location.href = window.location.href; } catch (e) {} }
+  try { if (LIVE_HOSTS.indexOf(window.top.location.hostname) > -1) { window.top.location.href = window.location.href; return; } } catch (e) {}
+  var to = window.parent === window.top ? [window.top] : [window.parent, window.top];
+  for (var w = 0; w < to.length; w++) for (var h = 0; h < LIVE_HOSTS.length; h++) { try { to[w].postMessage({ bm: 'booked', url: window.location.href }, 'https://' + LIVE_HOSTS[h]); } catch (e) {} }
 })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -426,42 +429,142 @@
     #bm-wb .wb-footer { padding: 44px 0 36px; }
     #bm-wb .wb-footer__logo { width: 180px; }
   }
+  
+  #bm-wb .wb-booked__badge {
+    width: 56px; height: 56px; margin-bottom: 26px; border-radius: 50%; background: var(--bm-grad-cta);
+    display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 32px -12px rgba(219, 189, 119, 0.7);
+  }
+  #bm-wb .wb-booked__badge svg { width: 28px; height: 28px; fill: none; stroke: var(--bm-charcoal); stroke-width: 2.75; stroke-linecap: round; stroke-linejoin: round; }
+  #bm-wb .wb-booked .wb-hero__grid { align-items: center; }
+  #bm-wb .wb-booked .wb-cal + .wb-note { margin-top: 18px; }
+  #bm-wb .wb-booked .wb-photo img { object-position: 50% 15%; }
+  #bm-wb .wb-visit__grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 72px; align-items: start; }
+  #bm-wb .wb-visit__media { position: sticky; top: 32px; }
+  #bm-wb .wb-visit .wb-photo { aspect-ratio: 4 / 5; }
+  #bm-wb .wb-visit .wb-photo img { object-position: 50% 25%; }
+  #bm-wb .wb-visit .wb-head { margin-bottom: 36px; }
+  #bm-wb .wb-intake-card {
+    display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 20px; align-items: start;
+    padding: 26px 28px; border: 1px solid var(--bm-line); border-radius: var(--bm-radius); background: var(--bm-ivory);
+  }
+  #bm-wb .wb-intake-card__icon { width: 52px; height: 52px; border-radius: 50%; background: var(--bm-charcoal); display: flex; align-items: center; justify-content: center; }
+  #bm-wb .wb-intake-card__icon svg { width: 24px; height: 24px; fill: none; stroke: var(--bm-gold-beige); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  #bm-wb .wb-intake-card .wb-intake { font-size: 17px; }
+  #bm-wb .wb-visit .wb-label { margin-top: 44px; }
+  #bm-wb .wb-think__in { max-width: 860px; margin: 0 auto; text-align: center; }
+  #bm-wb .wb-think__mark { width: 44px; height: 44px; margin: 0 auto 22px; fill: var(--bm-gold-tan); transform: rotate(180deg); }
+  #bm-wb .wb-think .wb-label { margin: 0 0 22px; font-size: 18px; font-weight: 500; color: var(--bm-ink-2); }
+  #bm-wb .wb-think .wb-quote { margin: 0; padding: 0; border: 0; }
+  #bm-wb .wb-think blockquote { font-size: clamp(26px, 3vw, 38px); line-height: 1.25; }
+  #bm-wb .wb-think figcaption { margin-top: 32px; display: inline-flex; align-items: center; gap: 14px; text-align: left; }
+  #bm-wb .wb-think figcaption img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--bm-beige-light), 0 0 0 3.5px var(--bm-gold-tan); }
+  #bm-wb .wb-think__name { display: block; font-family: var(--bm-head); font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--bm-ink); }
+  #bm-wb .wb-think__role { display: block; font-size: 15px; line-height: 1.4; color: var(--bm-ink-2); }
+  @media (max-width: 900px) {
+    #bm-wb .wb-visit__grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+    #bm-wb .wb-visit__media { position: static; max-width: 460px; }
+  }
+  @media (max-width: 767px) {
+    #bm-wb .wb-booked__badge { width: 46px; height: 46px; margin-bottom: 20px; }
+    #bm-wb .wb-booked__badge svg { width: 23px; height: 23px; }
+    #bm-wb .wb-booked .wb-photo img { object-position: 50% 10%; }
+    #bm-wb .wb-visit .wb-photo { aspect-ratio: 5 / 4; }
+    #bm-wb .wb-visit .wb-photo img { object-position: 50% 6%; }
+    #bm-wb .wb-visit .wb-head { margin-bottom: 28px; }
+    #bm-wb .wb-intake-card { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 22px 20px; }
+    #bm-wb .wb-intake-card__icon { width: 44px; height: 44px; }
+    #bm-wb .wb-intake-card__icon svg { width: 21px; height: 21px; }
+    #bm-wb .wb-intake-card .wb-intake { font-size: 16px; line-height: 1.6; }
+    #bm-wb .wb-visit .wb-label { margin-top: 36px; font-size: 18px; }
+    #bm-wb .wb-think__mark { width: 36px; height: 36px; margin-bottom: 18px; }
+    #bm-wb .wb-think .wb-label { font-size: 16px; margin-bottom: 18px; }
+    #bm-wb .wb-think blockquote { font-size: 24px; line-height: 1.3; }
+    #bm-wb .wb-think figcaption { margin-top: 26px; }
+  }
 </style>
 <div id="bm-wb">
   
-  <section class="wb-confirm wb-dark">
+  <section class="wb-hero wb-dark wb-booked">
     <div class="wb-wrap">
-      <h1 class="wb-h1">You&rsquo;re booked.</h1>
-      <p class="wb-sub" data-bm-when-on hidden>Your PRISM Consultation with Dr.&nbsp;Tagge is on <span data-bm-date></span> at <span data-bm-time></span> Central. A confirmation is on its way by email and text.</p>
-      <p class="wb-sub" data-bm-when-off>Your PRISM Consultation with Dr.&nbsp;Tagge is booked. A confirmation is on its way by email and text.</p>
-      <div class="wb-cal" data-bm-when-on hidden>
-        <a class="wb-btn" href="#" data-bm-gcal data-bm-calbtn="google" target="_blank" rel="noopener">Google Calendar</a>
-        <a class="wb-btn" href="#" data-bm-ics data-bm-calbtn="apple">Apple Calendar</a>
-        <a class="wb-btn" href="#" data-bm-ocal data-bm-calbtn="outlook" target="_blank" rel="noopener">Outlook</a>
+      <img class="wb-logo-top" src="https://drbunionmaster.com/wp-content/uploads/2026/10/logo-bunion-master-gold-dark.webp" alt="Bunion Master, Advanced Foot Surgery" width="526" height="93">
+      <div class="wb-hero__grid">
+        <div class="wb-hero__copy">
+          <span class="wb-booked__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h1 class="wb-h1">You&rsquo;re booked.</h1>
+          <p class="wb-sub" data-bm-when-on hidden>Your PRISM Consultation with Dr.&nbsp;Tagge is on <span data-bm-date></span> at <span data-bm-time></span> Central. A confirmation is on its way by email and text.</p>
+          <p class="wb-sub" data-bm-when-off>Your PRISM Consultation with Dr.&nbsp;Tagge is booked. A confirmation is on its way by email and text.</p>
+          <div class="wb-cal" data-bm-when-on hidden>
+            <a class="wb-btn" href="#" data-bm-gcal data-bm-calbtn="google" target="_blank" rel="noopener">Google Calendar</a>
+            <a class="wb-btn" href="#" data-bm-ics data-bm-calbtn="apple">Apple Calendar</a>
+            <a class="wb-btn" href="#" data-bm-ocal data-bm-calbtn="outlook" target="_blank" rel="noopener">Outlook</a>
+          </div>
+          <p class="wb-note">Need a different time? Reply to your confirmation email.</p>
+          <p class="wb-backline" data-bm-backline>If the live Q&amp;A is still running, head back in for the rest of the questions.</p>
+          <div class="wb-host">
+            <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/avatar-tagge.webp" alt="" width="256" height="256" decoding="async">
+            <div>
+              <p class="wb-host__name">Dr.&nbsp;Michael Tagge, DPM</p>
+              <p class="wb-host__role">Foot surgeon, Chicago</p>
+            </div>
+          </div>
+        </div>
+        <div class="wb-hero__media">
+          <figure class="wb-photo">
+            <picture>
+              <source srcset="https://drbunionmaster.com/wp-content/uploads/2026/10/confirm-tagge-smiling.avif" type="image/avif">
+              <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/confirm-tagge-smiling.webp" alt="Dr. Michael Tagge, DPM, in scrubs" width="820" height="1230" fetchpriority="high" decoding="async">
+            </picture>
+          </figure>
+        </div>
       </div>
-      <p class="wb-note">Need a different time? Reply to your confirmation email.</p>
-      <p class="wb-backline" data-bm-backline>If the live Q&amp;A is still running, head back in for the rest of the questions.</p>
     </div>
   </section>
   
-  <section class="wb-section">
-    <div class="wb-wrap wb-wrap--text">
-      <div class="wb-head">
-        <h2 class="wb-h2">Before your visit</h2>
+  <section class="wb-section wb-visit">
+    <div class="wb-wrap">
+      <div class="wb-visit__grid">
+        <div class="wb-visit__copy">
+          <div class="wb-head">
+            <h2 class="wb-h2">Before your visit</h2>
+          </div>
+          <div class="wb-intake-card">
+            <span class="wb-intake-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>
+            <p class="wb-intake"><strong>Fill in your intake form.</strong> The link is in your confirmation email. It gives Dr.&nbsp;Tagge what he needs, so your time together is spent on your foot.</p>
+          </div>
+          <p class="wb-label">Bring these if you can:</p>
+          <ul class="wb-dots">
+            <li>The shoes that give you trouble, or a pair you&rsquo;d love to wear again.</li>
+            <li>Any past X-rays, scans or records from other doctors.</li>
+            <li>Clothes that make it easy to examine your foot and ankle.</li>
+            <li>Your calendar. If there&rsquo;s a trip, a wedding or a golf season coming up, he wants to plan around it.</li>
+            <li>The person you&rsquo;ll make the decision with.</li>
+          </ul>
+        </div>
+        <div class="wb-visit__media">
+          <figure class="wb-photo">
+            <picture>
+              <source srcset="https://drbunionmaster.com/wp-content/uploads/2026/10/booking-tagge-exam-room.avif" type="image/avif">
+              <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/booking-tagge-exam-room.webp" alt="Dr. Michael Tagge in an exam room" width="900" height="1350" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </div>
       </div>
-      <p class="wb-intake"><strong>Fill in your intake form.</strong> The link is in your confirmation email. It gives Dr.&nbsp;Tagge what he needs, so your time together is spent on your foot.</p>
-      <p class="wb-label">Bring these if you can:</p>
-      <ul class="wb-dots">
-        <li>The shoes that give you trouble, or a pair you&rsquo;d love to wear again.</li>
-        <li>Any past X-rays, scans or records from other doctors.</li>
-        <li>Clothes that make it easy to examine your foot and ankle.</li>
-        <li>Your calendar. If there&rsquo;s a trip, a wedding or a golf season coming up, he wants to plan around it.</li>
-        <li>The person you&rsquo;ll make the decision with.</li>
-      </ul>
-      <p class="wb-label">And one question to think about before you meet:</p>
-      <figure class="wb-quote wb-quote--light">
-        <blockquote>&ldquo;If your foot were no longer holding you back, what would you do differently?&rdquo;<br>&ldquo;Don&rsquo;t give me the medical answer. Give me your answer.&rdquo;</blockquote>
-      </figure>
+    </div>
+  </section>
+  
+  <section class="wb-section wb-beige wb-think">
+    <div class="wb-wrap">
+      <div class="wb-think__in">
+        <svg class="wb-think__mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        <p class="wb-label">And one question to think about before you meet:</p>
+        <figure class="wb-quote wb-quote--light">
+          <blockquote>&ldquo;If your foot were no longer holding you back, what would you do differently?&rdquo;<br>&ldquo;Don&rsquo;t give me the medical answer. Give me your answer.&rdquo;</blockquote>
+          <figcaption>
+            <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/avatar-tagge.webp" alt="" width="256" height="256" loading="lazy" decoding="async">
+            <span><span class="wb-think__name">Dr.&nbsp;Michael Tagge, DPM</span><span class="wb-think__role">Foot surgeon, Chicago</span></span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
   
@@ -653,6 +756,17 @@
       calSlot.appendChild(f);
       fire('bm_checkout_view', 'InitiateCheckout', { value: 395, currency: 'USD' });
     };
+    var FROM = ['https://www.chicagobunionrelief.com', 'https://chicagobunionrelief.com', 'https://consult.drbunionmaster.com'];
+    var booked = false;
+    window.addEventListener('message', function (e) {
+      var d = e.data;
+      if (booked || FROM.indexOf(e.origin) < 0 || !d || d.bm !== 'booked' || typeof d.url !== 'string') return;
+      var u;
+      try { u = new URL(d.url); } catch (x) { return; }
+      if (FROM.indexOf(u.origin) < 0) return;
+      booked = true;
+      window.location.href = typeof BOOKED_URL !== 'undefined' && BOOKED_URL ? BOOKED_URL.split('?')[0] + u.search : u.href;
+    });
     if ('IntersectionObserver' in window) {
       var calIo = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { loadCal(); calIo.disconnect(); } }, { rootMargin: '1400px 0px' });
       calIo.observe(calSlot);
