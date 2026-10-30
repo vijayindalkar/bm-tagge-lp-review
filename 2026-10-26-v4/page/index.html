@@ -16,7 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.avif" type="image/avif" fetchpriority="high">
 <style>
-  html, body { overflow-x: clip; }
+  html, body { margin: 0; overflow-x: clip; }
+  .zpsection:has(#bm-v4), .zpsection:has(#bm-v4) *:has(#bm-v4) { padding-top: 0 !important; padding-bottom: 0 !important; margin-top: 0 !important; margin-bottom: 0 !important; }
   #bm-v4 {
     --bm-charcoal: #171717;
     --bm-charcoal-2: #222220;
@@ -34,8 +35,10 @@
     --bm-body: "Inter", Arial, sans-serif;
     --bm-radius: 22px;
     --bm-shadow: 0 22px 54px rgba(23, 23, 23, 0.09);
-    width: 100%;
-    margin: 0;
+    
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 0 0 calc(50% - 50vw);
     background: var(--bm-ivory);
     color: var(--bm-charcoal);
     font-family: var(--bm-body);
@@ -198,12 +201,15 @@
   #bm-v4 .bm-cta-band { display: flex; align-items: center; justify-content: space-between; gap: 26px; margin-top: 34px; padding: 28px; border-radius: 18px; background: var(--bm-charcoal); color: var(--bm-white); }
   #bm-v4 .bm-cta-band p { font-family: var(--bm-head); font-size: 24px; font-weight: 700; line-height: 1.3; }
   
-  #bm-v4 .bm-video-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 32px; align-items: stretch; }
-  #bm-v4 .bm-video-button { position: relative; min-height: 420px; overflow: hidden; border: 0; border-radius: var(--bm-radius); background: #111; cursor: pointer; }
-  #bm-v4 .bm-video-button img { height: 100%; object-fit: cover; }
-  #bm-v4 .bm-video-button::after { position: absolute; inset: 0; content: ""; background: linear-gradient(transparent 40%, rgba(0,0,0,.62)); }
+  #bm-v4 .bm-video-grid { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 56px; align-items: center; }
+  #bm-v4 .bm-video { margin: 0; }
+  #bm-v4 .bm-video__frame { position: relative; overflow: hidden; aspect-ratio: 9/16; border-radius: var(--bm-radius); background: #111; box-shadow: var(--bm-shadow); }
+  #bm-v4 .bm-video video { display: block; width: 100%; height: 100%; object-fit: cover; background: #111; }
+  #bm-v4 .bm-video__start { position: absolute; inset: 0; z-index: 2; width: 100%; padding: 0; border: 0; background: linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.22)); cursor: pointer; }
+  #bm-v4 .bm-video.is-playing .bm-video__start { display: none; }
   #bm-v4 .bm-play { position: absolute; top: 50%; left: 50%; z-index: 2; display: grid; width: 76px; height: 76px; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: var(--bm-gradient); color: var(--bm-charcoal); font-size: 24px; transform: translate(-50%, -50%); }
-  #bm-v4 .bm-video-caption { position: absolute; right: 24px; bottom: 22px; left: 24px; z-index: 2; color: var(--bm-white); font-family: var(--bm-head); font-size: 22px; font-weight: 700; line-height: 1.3; }
+  #bm-v4 .bm-video figcaption { margin-top: 14px; color: var(--bm-muted); font-size: 16px; line-height: 1.45; }
+  #bm-v4 .bm-video figcaption strong { display: block; color: var(--bm-charcoal); font-family: var(--bm-head); font-size: 18px; }
   #bm-v4 .bm-story-quotes { display: grid; gap: 14px; }
   #bm-v4 .bm-story-quotes .bm-quote { padding: 22px 22px 22px 27px; font-size: 17px; }
   #bm-v4 .bm-older-case { margin-top: 58px; padding: 34px; border-radius: 26px; background: var(--bm-beige); }
@@ -268,15 +274,10 @@
   #bm-v4 .bm-disclaimer { max-width: 760px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); font-size: 14px; line-height: 1.55; }
   #bm-v4 .bm-sticky { position: fixed; right: 0; bottom: 0; left: 0; z-index: 80; display: none; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid rgba(255,255,255,.12); background: rgba(23,23,23,.96); backdrop-filter: blur(10px); }
   #bm-v4 .bm-sticky .bm-btn { width: 100%; }
-  
-  #bm-v4 .bm-modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgba(0,0,0,.84); }
-  #bm-v4 .bm-modal__dialog { position: relative; width: min(920px, 100%); }
-  #bm-v4 .bm-modal__video { overflow: hidden; aspect-ratio: 16/9; border-radius: 16px; background: #000; }
-  #bm-v4 .bm-modal iframe { width: 100%; height: 100%; border: 0; }
-  #bm-v4 .bm-modal__close { position: absolute; top: -46px; right: 0; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: #222; color: #fff; cursor: pointer; font-size: 24px; }
   @media (max-width: 900px) {
     #bm-v4 .bm-section { padding: 70px 0; }
     #bm-v4 .bm-hero__grid, #bm-v4 .bm-recognition, #bm-v4 .bm-video-grid, #bm-v4 .bm-older-case__grid { grid-template-columns: 1fr; }
+    #bm-v4 .bm-video { width: min(360px, 100%); margin: 0 auto; }
     #bm-v4 .bm-recognition { grid-template-areas: "intro" "checks" "followup"; }
     #bm-v4 .bm-hero__grid { gap: 46px; }
     #bm-v4 .bm-cases, #bm-v4 .bm-prism-cards, #bm-v4 .bm-steps { grid-template-columns: 1fr; }
@@ -318,7 +319,6 @@
     #bm-v4 .bm-timeline__item::before { left: -35px; }
     #bm-v4 .bm-cta-band { flex-direction: column; align-items: flex-start; padding: 23px; }
     #bm-v4 .bm-cta-band .bm-btn { width: 100%; }
-    #bm-v4 .bm-video-button { min-height: 310px; }
     #bm-v4 .bm-older-case { padding: 22px; }
     #bm-v4 .bm-bring { grid-template-columns: 1fr; }
     #bm-v4 .bm-doctor-quote { grid-template-columns: 1fr; justify-items: start; }
@@ -528,11 +528,15 @@
     <div class="bm-wrap">
       <div class="bm-head"><h2 class="bm-h2" id="bm-stories-title">What patients say</h2></div>
       <div class="bm-video-grid">
-        <button class="bm-video-button" type="button" data-bm-video="e0xc_iz7A5w" aria-label="Play After the Decision: Real Words from Real Patients">
-          <img src="https://i.ytimg.com/vi/e0xc_iz7A5w/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy">
-          <span class="bm-play" aria-hidden="true">▶</span>
-          <span class="bm-video-caption">After the Decision: Real Words from Real Patients</span>
-        </button>
+        <figure class="bm-video" data-bm-player>
+          <div class="bm-video__frame">
+            <video preload="none" playsinline width="720" height="1280" poster="https://i.ytimg.com/vi/e0xc_iz7A5w/oardefault.jpg" aria-label="After the Decision: Real Words from Real Patients">
+              <source src="https://drbunionmaster.com/wp-content/uploads/2026/10/vidssave.com-After-the-Decision-Real-Words-from-Real-Patients-with-Dr-Tagges-PRISM-reconstructive-surgery-720P.mp4" type="video/mp4">
+            </video>
+            <button class="bm-video__start" type="button" data-bm-video-start aria-label="Play After the Decision: Real Words from Real Patients"><span class="bm-play" aria-hidden="true">▶</span></button>
+          </div>
+          <figcaption><strong>After the Decision: Real Words from Real Patients</strong>2:39 · Captions on screen</figcaption>
+        </figure>
         <div class="bm-story-quotes">
           <blockquote class="bm-quote">&ldquo;I am having another bunionectomy with Dr. Tagge on my other foot soon.&rdquo;<cite>R.M. · Google review, posted for his wife</cite></blockquote>
           <blockquote class="bm-quote">&ldquo;I traveled in from out of town for my procedure, and it was absolutely the right decision.&rdquo;<cite>J.J. · Google review</cite></blockquote>
@@ -638,12 +642,6 @@
       </div>
     </div>
   </div>
-  <div class="bm-modal" data-bm-modal hidden role="dialog" aria-modal="true" aria-label="Patient video">
-    <div class="bm-modal__dialog">
-      <button class="bm-modal__close" type="button" data-bm-close aria-label="Close video">×</button>
-      <div class="bm-modal__video" data-bm-video-slot></div>
-    </div>
-  </div>
 </main>
 <script>
 (function () {
@@ -713,6 +711,8 @@
     if (!formModal) return;
     lastFormOpener = event && event.currentTarget ? event.currentTarget : null;
     loadForm();
+    var playing = root.querySelector('[data-bm-player] video');
+    if (playing && !playing.paused) playing.pause();
     formModal.hidden = false;
     document.body.style.overflow = 'hidden';
     updateSticky();
@@ -740,33 +740,29 @@
     if (formModal && !formModal.hidden) closeForm();
     if (formFrame && formFrame.getAttribute('src')) formFrame.src = formFrame.getAttribute('src');
   });
-  var videoModal = root.querySelector('[data-bm-modal]');
-  var videoSlot = root.querySelector('[data-bm-video-slot]');
-  var videoOpener = root.querySelector('[data-bm-video]');
-  var videoCloser = root.querySelector('[data-bm-close]');
-  function closeVideo() {
-    if (!videoModal || !videoSlot) return;
-    videoModal.hidden = true;
-    videoSlot.innerHTML = '';
-    document.body.style.overflow = '';
-    if (videoOpener) videoOpener.focus();
-  }
-  if (videoOpener && videoModal && videoSlot) {
-    videoOpener.addEventListener('click', function () {
-      var id = videoOpener.getAttribute('data-bm-video');
+  
+  var player = root.querySelector('[data-bm-player]');
+  var playerVideo = player && player.querySelector('video');
+  var playerStart = player && player.querySelector('[data-bm-video-start]');
+  var videoTracked = false;
+  if (playerVideo && playerStart) {
+    playerStart.addEventListener('click', function () {
+      player.classList.add('is-playing');
+      playerVideo.controls = true;
+      var playing = playerVideo.play();
+      if (playing && playing.catch) playing.catch(function () {});
+      playerVideo.focus();
+    });
+    playerVideo.addEventListener('play', function () {
+      player.classList.add('is-playing');
+      playerVideo.controls = true;
+      if (videoTracked) return;
+      videoTracked = true;
       track({ event: 'bm_video_play', bm_video: 'after-the-decision' });
-      videoSlot.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="After the Decision: Real Words from Real Patients" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-      videoModal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      if (videoCloser) videoCloser.focus();
     });
   }
-  if (videoCloser) videoCloser.addEventListener('click', closeVideo);
-  if (videoModal) videoModal.addEventListener('click', function (event) { if (event.target === videoModal) closeVideo(); });
   document.addEventListener('keydown', function (event) {
-    if (event.key !== 'Escape') return;
-    if (formModal && !formModal.hidden) closeForm();
-    else if (videoModal && !videoModal.hidden) closeVideo();
+    if (event.key === 'Escape' && formModal && !formModal.hidden) closeForm();
   });
 })();
 </script>
