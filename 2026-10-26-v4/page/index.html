@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/hero-normal-vs-bunion-v2-pain-marker.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.avif" type="image/avif" fetchpriority="high">
 <style>
   html, body { overflow-x: clip; }
   #bm-v4 {
@@ -133,7 +133,7 @@
   #bm-v4 .bm-hero__cta { margin-top: 30px; }
   #bm-v4 .bm-hero__cta .bm-note { margin-top: 12px; }
   #bm-v4 .bm-hero__visual { position: relative; overflow: hidden; border: 1px solid rgba(219,189,119,.28); border-radius: 26px; background: var(--bm-ivory); box-shadow: 0 32px 70px rgba(0,0,0,.35); }
-  #bm-v4 .bm-hero__visual picture { display: block; aspect-ratio: 3/2; }
+  #bm-v4 .bm-hero__visual picture { display: block; aspect-ratio: 1/1; }
   #bm-v4 .bm-hero__visual img { height: 100%; object-fit: cover; object-position: center; }
   #bm-v4 .bm-credentials { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border: 1px solid var(--bm-border); border-radius: var(--bm-radius); background: var(--bm-white); box-shadow: var(--bm-shadow); }
   #bm-v4 .bm-credential { display: flex; min-height: 122px; align-items: center; gap: 14px; padding: 24px; border-right: 1px solid var(--bm-border); font-weight: 600; line-height: 1.4; }
@@ -301,7 +301,7 @@
     #bm-v4 .bm-head--center { text-align: left; }
     #bm-v4 .bm-hero__lines p { font-size: 18px; line-height: 1.55; }
     #bm-v4 .bm-btn { width: 100%; }
-    #bm-v4 .bm-hero__visual picture { aspect-ratio: 3/2; }
+    #bm-v4 .bm-hero__visual picture { aspect-ratio: 1/1; }
     #bm-v4 .bm-credentials { grid-template-columns: 1fr; }
     #bm-v4 .bm-credential { min-height: 0; border-right: 0; border-bottom: 1px solid var(--bm-border); }
     #bm-v4 .bm-credential:last-child { border-bottom: 0; }
@@ -358,14 +358,14 @@
           <p>Most patients walk out the same day without crutches, usually with no screws or plates left in the foot.</p>
         </div>
         <div class="bm-hero__cta">
-          <a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a>
+          <a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="hero">See If You&rsquo;re a Candidate</a>
           <p class="bm-note">About a minute. Nothing is booked until you pick a time.</p>
         </div>
       </div>
       <figure class="bm-hero__visual">
         <picture>
-          <source srcset="assets/hero-normal-vs-bunion-v2-pain-marker.webp" type="image/webp">
-          <img src="assets/hero-normal-vs-bunion-v2-pain-marker.png" alt="Top-down comparison of a normal foot and a foot with a bunion highlighted by a red pain marker" width="1536" height="1024" fetchpriority="high">
+          <source srcset="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.avif" type="image/avif">
+          <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/hero-bunion-xray.webp" alt="Highlighted X-ray anatomy of a foot showing a painful bunion at the big-toe joint" width="1100" height="1119" fetchpriority="high">
         </picture>
       </figure>
     </div>
@@ -402,7 +402,7 @@
       </blockquote>
       <p class="bm-note bm-result-note">Individual results vary.</p>
       <div class="bm-section-cta">
-        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a>
+        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="proof">See If You&rsquo;re a Candidate</a>
       </div>
     </div>
   </section>
@@ -433,7 +433,7 @@
         </div>
       </div>
       <div class="bm-section-cta">
-        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a>
+        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="dealing">See If You&rsquo;re a Candidate</a>
       </div>
     </div>
   </section>
@@ -500,7 +500,7 @@
       </div>
       <p class="bm-note" style="margin-top:15px">What your plan includes depends on your foot.</p>
       <div class="bm-section-cta">
-        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a>
+        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="prism">See If You&rsquo;re a Candidate</a>
       </div>
     </div>
   </section>
@@ -521,7 +521,7 @@
         <p>Timelines vary from person to person. Walking isn&rsquo;t the same as being fully healed.</p>
         <p>But walking from day one does mean you&rsquo;re not stuck on the couch asking for rides for weeks.</p>
       </div>
-      <div class="bm-cta-band"><p>Want to know what your first six weeks could look like?</p><a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a></div>
+      <div class="bm-cta-band"><p>Want to know what your first six weeks could look like?</p><a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="timeline">See If You&rsquo;re a Candidate</a></div>
     </div>
   </section>
   <section class="bm-section bm-white" aria-labelledby="bm-stories-title">
@@ -544,7 +544,7 @@
           <div>
             <p class="bm-eyebrow">Think you&rsquo;ve waited too long?</p>
             <h3 class="bm-h3">One patient was 86, with a severe bunion, a crossed-over second toe and hammertoes.</h3>
-            <p class="bm-note" style="margin-top:14px">Individual results vary.</p>
+            <p class="bm-note" style="margin-top:14px">After photo taken 5 weeks after surgery, still swollen. Individual results vary.</p>
           </div>
           <div class="bm-pair">
             <figure><img src="https://drbunionmaster.com/wp-content/uploads/2026/04/new-comparison-1.png.webp" alt="Severe bunion with crossed-over second toe and hammertoes before surgery" width="1080" height="1080" loading="lazy"><figcaption class="bm-image-tag">Before</figcaption></figure>
@@ -553,7 +553,7 @@
         </div>
       </article>
       <div class="bm-section-cta">
-        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a>
+        <a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="stories">See If You&rsquo;re a Candidate</a>
       </div>
     </div>
   </section>
@@ -561,7 +561,7 @@
     <div class="bm-wrap">
       <div class="bm-head"><h2 class="bm-h2" id="bm-next-title">Where you are now, and what happens next</h2></div>
       <ol class="bm-steps">
-        <li class="bm-step"><span class="bm-step__badge">You are here</span><span class="bm-step__n">01</span><h3 class="bm-h3">Answer a few quick questions below.</h3></li>
+        <li class="bm-step"><span class="bm-step__badge">You are here</span><span class="bm-step__n">01</span><h3 class="bm-h3">Answer a few quick questions.</h3></li>
         <li class="bm-step"><span class="bm-step__n">02</span><h3 class="bm-h3">Pick a time</h3><p>If it looks like a fit, the next page shows open times and the consultation fee.</p><p>Bunion Master is a private-pay practice, so surgery isn&rsquo;t billed to insurance.</p></li>
         <li class="bm-step"><span class="bm-step__n">03</span><h3 class="bm-h3">Meet Dr. Tagge</h3><p>Plenty of first visits last a few minutes. Yours is 90 minutes with the surgeon himself.</p><p>He&rsquo;ll go over your goals, examine your foot and take X-rays while you stand.</p></li>
         <li class="bm-step"><span class="bm-step__n">04</span><h3 class="bm-h3">Get his recommendation</h3><p>You leave with his recommendation, not a menu of options.</p><p>If surgery is right for you, you also get your plan and one all-inclusive quote.</p><p>If it isn&rsquo;t, he says so and explains why. Then you decide, in your own time.</p></li>
@@ -579,7 +579,7 @@
         <img src="https://drbunionmaster.com/wp-content/uploads/2026/10/avatar-tagge.webp" alt="Dr. Michael Tagge" width="256" height="256" loading="lazy">
         <blockquote>&ldquo;I&rsquo;ve treated hundreds of bunions. I&rsquo;ve never treated yours before.&rdquo;<cite>Dr. Michael Tagge · Foot surgeon and creator of PRISM</cite></blockquote>
       </figure>
-      <div style="margin-top:34px;text-align:center"><a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a></div>
+      <div style="margin-top:34px;text-align:center"><a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="next-steps">See If You&rsquo;re a Candidate</a></div>
     </div>
   </section>
   <section class="bm-section bm-white" aria-labelledby="bm-faq-title">
@@ -608,7 +608,7 @@
           <p>You&rsquo;ve already done the hard part: you went looking for another answer.</p>
           <p>The next step is a few quick questions. They take about a minute, and nothing is booked until you pick a time.</p>
         </div>
-        <div class="bm-final__action"><a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a></div>
+        <div class="bm-final__action"><a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="final">See If You&rsquo;re a Candidate</a></div>
       </div>
     </div>
   </section>
@@ -628,7 +628,7 @@
       <p class="bm-disclaimer">This page provides general information and is not a substitute for a medical evaluation. Candidacy is determined during consultation. Surgery carries risks. Individual results and recovery vary. Regenerative components may not be covered by insurance.</p>
     </div>
   </footer>
-  <div class="bm-sticky" data-bm-sticky><a class="bm-btn" href="#bm-v4-form" data-bm-form-open>See If You&rsquo;re a Candidate</a></div>
+  <div class="bm-sticky" data-bm-sticky><a class="bm-btn" href="#bm-v4-form" data-bm-form-open data-bm-cta="sticky">See If You&rsquo;re a Candidate</a></div>
   <div class="bm-form-modal" id="bm-v4-form" data-bm-form-modal hidden role="dialog" aria-modal="true" aria-label="Tell us about your foot">
     <div class="bm-form-modal__dialog">
       <button class="bm-form-modal__close" type="button" data-bm-form-close aria-label="Close qualification form">×</button>
@@ -639,7 +639,6 @@
       </div>
     </div>
   </div>
-  
   <div class="bm-modal" data-bm-modal hidden role="dialog" aria-modal="true" aria-label="Patient video">
     <div class="bm-modal__dialog">
       <button class="bm-modal__close" type="button" data-bm-close aria-label="Close video">×</button>
@@ -660,6 +659,41 @@
   var sticky = root.querySelector('[data-bm-sticky]');
   var heroVisible = true;
   var finalVisible = false;
+  var VARIANT = 'v4';
+  var formFrame = root.querySelector('#ziframe_896216');
+  var PASS_PARAMS = /^(utm_[a-z_]+|gclid|gbraid|wbraid|fbclid|msclkid)$/;
+  function track(data) {
+    window.dataLayer = window.dataLayer || [];
+    data.bm_variant = VARIANT;
+    window.dataLayer.push(data);
+  }
+  
+  function loadForm() {
+    if (!formFrame || formFrame.getAttribute('src')) return;
+    var params = new URLSearchParams();
+    new URLSearchParams(window.location.search).forEach(function (value, key) {
+      if (value && PASS_PARAMS.test(key)) params.set(key, value);
+    });
+    params.set('lp_variant', VARIANT);
+    var rfr = window.location.href;
+    try {
+      rfr = window.self !== window.top ? window.top.location.href : (/^https?:\/\/[\w.-]+\.[a-zA-Z]{2,}/i.test(rfr) ? rfr : '');
+    } catch (e) {}
+    if (rfr.length > 1800) rfr = rfr.split('?')[0].substring(0, 1800);
+    if (rfr) params.set('referrername', rfr);
+    formFrame.src = formFrame.getAttribute('data-src') + '?' + params.toString();
+  }
+  if (document.readyState === 'complete') loadForm();
+  else window.addEventListener('load', loadForm);
+  
+  if (formFrame) {
+    formFrame.addEventListener('load', function () {
+      var at;
+      try { at = new URL(formFrame.contentWindow.location.href); } catch (e) { return; }
+      var form = new URL(formFrame.getAttribute('data-src'), window.location.href);
+      if (/^https?:$/.test(at.protocol) && at.pathname !== form.pathname) window.location.replace(at.href);
+    });
+  }
   function updateSticky() {
     if (!sticky) return;
     var formIsOpen = formModal && !formModal.hidden;
@@ -679,6 +713,7 @@
     if (event) event.preventDefault();
     if (!formModal) return;
     lastFormOpener = event && event.currentTarget ? event.currentTarget : null;
+    loadForm();
     formModal.hidden = false;
     document.body.style.overflow = 'hidden';
     updateSticky();
@@ -694,11 +729,18 @@
   formOpeners.forEach(function (link) {
     link.addEventListener('click', function (event) {
       event.preventDefault();
+      track({ event: 'bm_cta_click', bm_cta: this.getAttribute('data-bm-cta') });
       openForm(event);
     });
   });
   if (formClose) formClose.addEventListener('click', closeForm);
   if (formModal) formModal.addEventListener('click', function (event) { if (event.target === formModal) closeForm(); });
+  
+  window.addEventListener('pageshow', function (event) {
+    if (!event.persisted) return;
+    if (formModal && !formModal.hidden) closeForm();
+    if (formFrame && formFrame.getAttribute('src')) formFrame.src = formFrame.getAttribute('src');
+  });
   var videoModal = root.querySelector('[data-bm-modal]');
   var videoSlot = root.querySelector('[data-bm-video-slot]');
   var videoOpener = root.querySelector('[data-bm-video]');
@@ -713,6 +755,7 @@
   if (videoOpener && videoModal && videoSlot) {
     videoOpener.addEventListener('click', function () {
       var id = videoOpener.getAttribute('data-bm-video');
+      track({ event: 'bm_video_play', bm_video: 'after-the-decision' });
       videoSlot.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="After the Decision: Real Words from Real Patients" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
       videoModal.hidden = false;
       document.body.style.overflow = 'hidden';
