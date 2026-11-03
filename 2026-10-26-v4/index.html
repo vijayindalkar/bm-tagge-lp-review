@@ -44,8 +44,8 @@
 <div class="note">Review copy. The form is switched off here, so nothing you submit creates a lead.</div>
 <main id="main"></main>
 <script>
-var cur = 'page/', view = 'desktop';
-try { cur = localStorage.getItem('bmr_p') || cur; view = localStorage.getItem('bmr_v') || view; } catch (e) {}
+var cur = 'page/', view = 'desktop', pkey = 'bmr_p_' + location.pathname;
+try { cur = localStorage.getItem(pkey) || cur; view = localStorage.getItem('bmr_v') || view; } catch (e) {}
 if (!document.querySelector('#nav button[data-p="' + cur + '"]')) cur = 'page/';
 function el(t, c) { var e = document.createElement(t); if (c) e.className = c; return e; }
 function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -72,7 +72,7 @@ function render() {
     var i2 = document.createElement('iframe'); i2.src = cur; i2.title = 'Mobile view'; f2.appendChild(i2); w2.appendChild(f2); m.appendChild(w2);
   }
 }
-document.getElementById('nav').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; cur = b.dataset.p; save('bmr_p', cur); render(); });
+document.getElementById('nav').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; cur = b.dataset.p; save(pkey, cur); render(); });
 document.getElementById('seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; view = b.dataset.v; save('bmr_v', view); render(); });
 window.addEventListener('resize', function () { clearTimeout(window._t); window._t = setTimeout(render, 200); });
 render();
